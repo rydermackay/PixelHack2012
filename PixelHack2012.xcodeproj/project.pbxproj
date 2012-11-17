@@ -22,7 +22,34 @@
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
 		0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */; };
 		0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */; };
+		4DDB98AA1658021300B2F23D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98A6165801C100B2F23D /* libPXAPI.a */; };
+		4DDB98B61658032300B2F23D /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98B31658032300B2F23D /* libAviarySDK.a */; };
+		4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */; };
+		4DDB98B91658036E00B2F23D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98B81658036E00B2F23D /* Accelerate.framework */; };
+		4DDB98BB1658039B00B2F23D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98BA1658039B00B2F23D /* QuartzCore.framework */; };
+		4DDB98BD165803A500B2F23D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98BC165803A500B2F23D /* StoreKit.framework */; };
+		4DDB98BF165803AC00B2F23D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98BE165803AC00B2F23D /* CoreText.framework */; };
+		4DDB98C1165803B900B2F23D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C0165803B900B2F23D /* OpenGLES.framework */; };
+		4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C2165803C200B2F23D /* libz.1.2.5.dylib */; };
+		4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C4165803CD00B2F23D /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DDB98A5165801C100B2F23D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EB9AFC415C34F3F002E7F6D;
+			remoteInfo = PXAPI;
+		};
+		4DDB98A7165801C100B2F23D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5EB9AFD515C34F3F002E7F6D;
+			remoteInfo = tests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0D3AB1001657E87F007DB2BF /* PixelHack2012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelHack2012.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +73,22 @@
 		0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHMasterViewController.m; sourceTree = "<group>"; };
 		0D3AB12A1657E880007DB2BF /* PXHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHDetailViewController.h; sourceTree = "<group>"; };
 		0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHDetailViewController.m; sourceTree = "<group>"; };
+		4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
+		4DDB98AD1658032300B2F23D /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
+		4DDB98AE1658032300B2F23D /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
+		4DDB98AF1658032300B2F23D /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
+		4DDB98B01658032300B2F23D /* AFPhotoEditorCustomization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorCustomization.h; sourceTree = "<group>"; };
+		4DDB98B11658032300B2F23D /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
+		4DDB98B21658032300B2F23D /* AFPhotoEditorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorStyle.h; sourceTree = "<group>"; };
+		4DDB98B31658032300B2F23D /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
+		4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		4DDB98B81658036E00B2F23D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		4DDB98BA1658039B00B2F23D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4DDB98BC165803A500B2F23D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4DDB98BE165803AC00B2F23D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		4DDB98C0165803B900B2F23D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		4DDB98C2165803C200B2F23D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		4DDB98C4165803CD00B2F23D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +96,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */,
+				4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */,
+				4DDB98C1165803B900B2F23D /* OpenGLES.framework in Frameworks */,
+				4DDB98BF165803AC00B2F23D /* CoreText.framework in Frameworks */,
+				4DDB98BD165803A500B2F23D /* StoreKit.framework in Frameworks */,
+				4DDB98BB1658039B00B2F23D /* QuartzCore.framework in Frameworks */,
+				0D3AB10B1657E87F007DB2BF /* CoreData.framework in Frameworks */,
+				4DDB98B91658036E00B2F23D /* Accelerate.framework in Frameworks */,
 				0D3AB1051657E87F007DB2BF /* UIKit.framework in Frameworks */,
 				0D3AB1071657E87F007DB2BF /* Foundation.framework in Frameworks */,
 				0D3AB1091657E87F007DB2BF /* CoreGraphics.framework in Frameworks */,
-				0D3AB10B1657E87F007DB2BF /* CoreData.framework in Frameworks */,
+				4DDB98AA1658021300B2F23D /* libPXAPI.a in Frameworks */,
+				4DDB98B61658032300B2F23D /* libAviarySDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +138,16 @@
 				0D3AB1041657E87F007DB2BF /* UIKit.framework */,
 				0D3AB1061657E87F007DB2BF /* Foundation.framework */,
 				0D3AB1081657E87F007DB2BF /* CoreGraphics.framework */,
+				4DDB98C4165803CD00B2F23D /* libsqlite3.0.dylib */,
+				4DDB98C2165803C200B2F23D /* libz.1.2.5.dylib */,
+				4DDB98C0165803B900B2F23D /* OpenGLES.framework */,
+				4DDB98BE165803AC00B2F23D /* CoreText.framework */,
+				4DDB98BC165803A500B2F23D /* StoreKit.framework */,
+				4DDB98BA1658039B00B2F23D /* QuartzCore.framework */,
+				4DDB98B81658036E00B2F23D /* Accelerate.framework */,
 				0D3AB10A1657E87F007DB2BF /* CoreData.framework */,
+				4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */,
+				4DDB98AB1658032300B2F23D /* AviarySDK */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +181,47 @@
 				0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DDB989E165801C100B2F23D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB98A6165801C100B2F23D /* libPXAPI.a */,
+				4DDB98A8165801C100B2F23D /* tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DDB98AB1658032300B2F23D /* AviarySDK */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB98AC1658032300B2F23D /* Headers */,
+				4DDB98B31658032300B2F23D /* libAviarySDK.a */,
+				4DDB98B41658032300B2F23D /* Resources */,
+			);
+			name = AviarySDK;
+			path = aviary/AviarySDK;
+			sourceTree = "<group>";
+		};
+		4DDB98AC1658032300B2F23D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB98AD1658032300B2F23D /* AFPhotoEditorContext.h */,
+				4DDB98AE1658032300B2F23D /* AFPhotoEditorController.h */,
+				4DDB98AF1658032300B2F23D /* AFPhotoEditorControllerOptions.h */,
+				4DDB98B01658032300B2F23D /* AFPhotoEditorCustomization.h */,
+				4DDB98B11658032300B2F23D /* AFPhotoEditorSession.h */,
+				4DDB98B21658032300B2F23D /* AFPhotoEditorStyle.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4DDB98B41658032300B2F23D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,12 +264,35 @@
 			mainGroup = 0D3AB0F51657E87F007DB2BF;
 			productRefGroup = 0D3AB1011657E87F007DB2BF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4DDB989E165801C100B2F23D /* Products */;
+					ProjectRef = 4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0D3AB0FF1657E87F007DB2BF /* PixelHack2012 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4DDB98A6165801C100B2F23D /* libPXAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPXAPI.a;
+			remoteRef = 4DDB98A5165801C100B2F23D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4DDB98A8165801C100B2F23D /* tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = tests.octest;
+			remoteRef = 4DDB98A7165801C100B2F23D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0D3AB0FE1657E87F007DB2BF /* Resources */ = {
@@ -180,6 +305,7 @@
 				0D3AB11D1657E87F007DB2BF /* Default-568h@2x.png in Resources */,
 				0D3AB1201657E87F007DB2BF /* MainStoryboard_iPhone.storyboard in Resources */,
 				0D3AB1231657E87F007DB2BF /* MainStoryboard_iPad.storyboard in Resources */,
+				4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +376,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -272,8 +403,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -286,6 +422,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixelHack2012/PixelHack2012-Prefix.pch";
 				INFOPLIST_FILE = "PixelHack2012/PixelHack2012-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/aviary/AviarySDK\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -297,6 +437,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PixelHack2012/PixelHack2012-Prefix.pch";
 				INFOPLIST_FILE = "PixelHack2012/PixelHack2012-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/aviary/AviarySDK\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -321,6 +465,7 @@
 				0D3AB1311657E880007DB2BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
