@@ -19,6 +19,15 @@
 		0D3AB11D1657E87F007DB2BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */; };
 		0D3AB1231657E87F007DB2BF /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */; };
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
+		0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */; };
+		0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */; };
+		0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB180165827DD007DB2BF /* PXHAudio.m */; };
+		0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3AB182165827F3007DB2BF /* AudioToolbox.framework */; };
+		0DEC548916582EDD00F83FBE /* PXHCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548816582EDD00F83FBE /* PXHCanvasView.m */; };
+		0DEC548C1658314A00F83FBE /* PXHMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548B1658314A00F83FBE /* PXHMotor.m */; };
+		0DEC548F165835D900F83FBE /* PXHScaleMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548E165835D900F83FBE /* PXHScaleMotor.m */; };
+		0DEC5492165840E100F83FBE /* PXHRotateMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC5491165840E100F83FBE /* PXHRotateMotor.m */; };
+		0DEC54951658458600F83FBE /* PXHTranslateMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC54941658458600F83FBE /* PXHTranslateMotor.m */; };
 		4DDB98AA1658021300B2F23D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98A6165801C100B2F23D /* libPXAPI.a */; };
 		4DDB98B61658032300B2F23D /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98B31658032300B2F23D /* libAviarySDK.a */; };
 		4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */; };
@@ -70,6 +79,23 @@
 		0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0D3AB1221657E87F007DB2BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		0D3AB1251657E880007DB2BF /* PixelHack2012.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PixelHack2012.xcdatamodel; sourceTree = "<group>"; };
+		0D3AB1271657E880007DB2BF /* PXHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHMasterViewController.h; sourceTree = "<group>"; };
+		0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHMasterViewController.m; sourceTree = "<group>"; };
+		0D3AB12A1657E880007DB2BF /* PXHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHDetailViewController.h; sourceTree = "<group>"; };
+		0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHDetailViewController.m; sourceTree = "<group>"; };
+		0D3AB17F165827DD007DB2BF /* PXHAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHAudio.h; sourceTree = "<group>"; };
+		0D3AB180165827DD007DB2BF /* PXHAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHAudio.m; sourceTree = "<group>"; };
+		0D3AB182165827F3007DB2BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0DEC548716582EDD00F83FBE /* PXHCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHCanvasView.h; sourceTree = "<group>"; };
+		0DEC548816582EDD00F83FBE /* PXHCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHCanvasView.m; sourceTree = "<group>"; };
+		0DEC548A1658314A00F83FBE /* PXHMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHMotor.h; sourceTree = "<group>"; };
+		0DEC548B1658314A00F83FBE /* PXHMotor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHMotor.m; sourceTree = "<group>"; };
+		0DEC548D165835D900F83FBE /* PXHScaleMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHScaleMotor.h; sourceTree = "<group>"; };
+		0DEC548E165835D900F83FBE /* PXHScaleMotor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHScaleMotor.m; sourceTree = "<group>"; };
+		0DEC5490165840E100F83FBE /* PXHRotateMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHRotateMotor.h; sourceTree = "<group>"; };
+		0DEC5491165840E100F83FBE /* PXHRotateMotor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHRotateMotor.m; sourceTree = "<group>"; };
+		0DEC54931658458600F83FBE /* PXHTranslateMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHTranslateMotor.h; sourceTree = "<group>"; };
+		0DEC54941658458600F83FBE /* PXHTranslateMotor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHTranslateMotor.m; sourceTree = "<group>"; };
 		4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
 		4DDB98AD1658032300B2F23D /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
 		4DDB98AE1658032300B2F23D /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
@@ -104,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDB98CD16581FE500B2F23D /* AssetsLibrary.framework in Frameworks */,
+				0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */,
 				4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */,
 				4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */,
 				4DDB98C1165803B900B2F23D /* OpenGLES.framework in Frameworks */,
@@ -144,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDB98CC16581FE500B2F23D /* AssetsLibrary.framework */,
+				0D3AB182165827F3007DB2BF /* AudioToolbox.framework */,
 				0D3AB1041657E87F007DB2BF /* UIKit.framework */,
 				0D3AB1061657E87F007DB2BF /* Foundation.framework */,
 				0D3AB1081657E87F007DB2BF /* CoreGraphics.framework */,
@@ -166,6 +194,9 @@
 			children = (
 				0D3AB1151657E87F007DB2BF /* PXHAppDelegate.h */,
 				0D3AB1161657E87F007DB2BF /* PXHAppDelegate.m */,
+				0D3AB17F165827DD007DB2BF /* PXHAudio.h */,
+				0D3AB180165827DD007DB2BF /* PXHAudio.m */,
+				0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */,
 				0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */,
 				4DDB98C6165814D100B2F23D /* PXHMainSceneViewController.h */,
 				4DDB98C7165814D100B2F23D /* PXHMainSceneViewController.m */,
@@ -176,6 +207,9 @@
 				4DDB98D31658242400B2F23D /* PXHSelectImageCell.m */,
 				4DDB98D616584E0800B2F23D /* PXHSelectActorViewController.h */,
 				4DDB98D716584E0800B2F23D /* PXHSelectActorViewController.m */,
+				0DEC548716582EDD00F83FBE /* PXHCanvasView.h */,
+				0DEC548816582EDD00F83FBE /* PXHCanvasView.m */,
+				0DEC54961658458D00F83FBE /* Motors */,
 				0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */,
 				0D3AB10D1657E87F007DB2BF /* Supporting Files */,
 			);
@@ -194,6 +228,21 @@
 				0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0DEC54961658458D00F83FBE /* Motors */ = {
+			isa = PBXGroup;
+			children = (
+				0DEC548A1658314A00F83FBE /* PXHMotor.h */,
+				0DEC548B1658314A00F83FBE /* PXHMotor.m */,
+				0DEC548D165835D900F83FBE /* PXHScaleMotor.h */,
+				0DEC548E165835D900F83FBE /* PXHScaleMotor.m */,
+				0DEC54931658458600F83FBE /* PXHTranslateMotor.h */,
+				0DEC54941658458600F83FBE /* PXHTranslateMotor.m */,
+				0DEC5490165840E100F83FBE /* PXHRotateMotor.h */,
+				0DEC5491165840E100F83FBE /* PXHRotateMotor.m */,
+			);
+			name = Motors;
 			sourceTree = "<group>";
 		};
 		4DDB989E165801C100B2F23D /* Products */ = {
@@ -335,6 +384,12 @@
 				4DDB98CB1658170400B2F23D /* PXHSelectImageViewController.m in Sources */,
 				4DDB98D41658242500B2F23D /* PXHSelectImageCell.m in Sources */,
 				4DDB98D816584E0800B2F23D /* PXHSelectActorViewController.m in Sources */,
+				0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */,
+				0DEC548916582EDD00F83FBE /* PXHCanvasView.m in Sources */,
+				0DEC548C1658314A00F83FBE /* PXHMotor.m in Sources */,
+				0DEC548F165835D900F83FBE /* PXHScaleMotor.m in Sources */,
+				0DEC5492165840E100F83FBE /* PXHRotateMotor.m in Sources */,
+				0DEC54951658458600F83FBE /* PXHTranslateMotor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
