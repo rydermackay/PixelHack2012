@@ -22,6 +22,8 @@
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
 		0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */; };
 		0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */; };
+		0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB180165827DD007DB2BF /* PXHAudio.m */; };
+		0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3AB182165827F3007DB2BF /* AudioToolbox.framework */; };
 		4DDB98AA1658021300B2F23D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98A6165801C100B2F23D /* libPXAPI.a */; };
 		4DDB98B61658032300B2F23D /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98B31658032300B2F23D /* libAviarySDK.a */; };
 		4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */; };
@@ -73,6 +75,9 @@
 		0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHMasterViewController.m; sourceTree = "<group>"; };
 		0D3AB12A1657E880007DB2BF /* PXHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHDetailViewController.h; sourceTree = "<group>"; };
 		0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHDetailViewController.m; sourceTree = "<group>"; };
+		0D3AB17F165827DD007DB2BF /* PXHAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHAudio.h; sourceTree = "<group>"; };
+		0D3AB180165827DD007DB2BF /* PXHAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHAudio.m; sourceTree = "<group>"; };
+		0D3AB182165827F3007DB2BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
 		4DDB98AD1658032300B2F23D /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
 		4DDB98AE1658032300B2F23D /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */,
 				4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */,
 				4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */,
 				4DDB98C1165803B900B2F23D /* OpenGLES.framework in Frameworks */,
@@ -135,6 +141,7 @@
 		0D3AB1031657E87F007DB2BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D3AB182165827F3007DB2BF /* AudioToolbox.framework */,
 				0D3AB1041657E87F007DB2BF /* UIKit.framework */,
 				0D3AB1061657E87F007DB2BF /* Foundation.framework */,
 				0D3AB1081657E87F007DB2BF /* CoreGraphics.framework */,
@@ -157,6 +164,8 @@
 			children = (
 				0D3AB1151657E87F007DB2BF /* PXHAppDelegate.h */,
 				0D3AB1161657E87F007DB2BF /* PXHAppDelegate.m */,
+				0D3AB17F165827DD007DB2BF /* PXHAudio.h */,
+				0D3AB180165827DD007DB2BF /* PXHAudio.m */,
 				0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */,
 				0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */,
 				0D3AB1271657E880007DB2BF /* PXHMasterViewController.h */,
@@ -321,6 +330,7 @@
 				0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */,
 				0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */,
 				0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */,
+				0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +373,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryder Mackay (KB7LG6A98A)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -383,6 +393,7 @@
 					"-ObjC",
 					"-all_load",
 				);
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "04A9F2CF-AB58-4BD1-8DFC-93ED82470458";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
