@@ -21,7 +21,7 @@ typedef struct {
 + (PXHAudio *)sharedInstance;
 - (void)start;
 - (void)stop;
-- (CGFloat)averageSample;
+- (AudioSampleType)averageSample;
 @property (nonatomic, assign) EffectState effectState;
 
 @end

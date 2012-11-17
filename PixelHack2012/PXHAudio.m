@@ -87,7 +87,7 @@ static OSStatus InputModulatingRenderCallback (
 			for (int currentChannel=0; currentChannel<buf.mNumberChannels; currentChannel++) {
 				memcpy(&sample, buf.mData + (currentFrame * effectState->asbd.mBytesPerFrame) + (currentChannel * bytesPerChannel), sizeof(AudioSampleType));
 				
-                averageSample += ABS(sample);
+                averageSample += powf(sample, 2);
                 sampleCount++;
                 
                 // silence sample
@@ -107,7 +107,7 @@ static OSStatus InputModulatingRenderCallback (
     *ioActionFlags |= kAudioUnitRenderAction_OutputIsSilence;
     
     if (sampleCount > 0) {
-        _averageSample = averageSample / sampleCount;
+        _averageSample = sqrtf(averageSample / sampleCount);
     }
     
 	return noErr;
@@ -281,7 +281,7 @@ static OSStatus InputModulatingRenderCallback (
     CheckError(AudioOutputUnitStop(_effectState.rioUnit), "Couldn't stop RIO unit");
 }
 
-- (CGFloat)averageSample
+- (AudioSampleType)averageSample
 {
     return _averageSample;
 }
