@@ -8,8 +8,6 @@
 
 #import "PXHAppDelegate.h"
 
-#import "PXHMasterViewController.h"
-
 @implementation PXHAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -19,19 +17,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        
-        UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-        PXHMasterViewController *controller = (PXHMasterViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        PXHMasterViewController *controller = (PXHMasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    }
     return YES;
 }
 							
