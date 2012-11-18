@@ -21,13 +21,17 @@
                                     <barButtonItem image="Background.png" style="plain" id="SGT-n3-CXD">
                                         <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="selectBackground:" destination="R6w-jS-TWQ" id="hmU-Oi-lHt"/>
+                                            <segue destination="yow-3l-OAk" kind="popover" identifier="selectImageSegue" popoverAnchorBarButtonItem="SGT-n3-CXD" id="gwR-og-5Z4">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="Add.png" style="plain" id="Uew-gP-AZ0">
                                         <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="addActor:" destination="R6w-jS-TWQ" id="jbw-Mg-8gM"/>
+                                            <segue destination="fZc-2d-qQT" kind="popover" identifier="selectActorSegue" popoverAnchorBarButtonItem="Uew-gP-AZ0" id="oNP-Ye-1We">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="Faces.png" style="plain" id="cJq-ew-1EG">
@@ -79,27 +83,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iz0-pe-dWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3179" y="-1530"/>
+            <point key="canvasLocation" x="-4243" y="-2594"/>
         </scene>
         <!--Select Image View Controller-->
         <scene sceneID="e6V-n1-yvf">
             <objects>
                 <viewController storyboardIdentifier="selectImagesController" id="yow-3l-OAk" customClass="PXHSelectImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zpZ-Rh-E6h">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilp-he-ebk">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="V0W-ce-n41"/>
                                     <barButtonItem style="plain" systemItem="camera" id="0zh-z5-WxG"/>
-                                    <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="i9u-Gw-Je8"/>
                                 </items>
                             </toolbar>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-sz-mVk">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="714" id="zK8-dQ-RrQ"/>
-                                </constraints>
                                 <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y3q-CX-suq">
                                     <size key="itemSize" width="150" height="150"/>
@@ -140,30 +140,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ilp-he-ebk" firstAttribute="leading" secondItem="zpZ-Rh-E6h" secondAttribute="leading" type="default" id="5PL-6d-fmT"/>
-                            <constraint firstItem="2bS-sz-mVk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="9a6-Gw-Dag"/>
+                            <constraint firstItem="ilp-he-ebk" firstAttribute="top" secondItem="zpZ-Rh-E6h" secondAttribute="top" type="default" id="8zZ-Uv-Hpo"/>
                             <constraint firstItem="2bS-sz-mVk" firstAttribute="leading" secondItem="zpZ-Rh-E6h" secondAttribute="leading" type="default" id="9cI-n6-jIk"/>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="Avj-PU-fOU"/>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="top" secondItem="zpZ-Rh-E6h" secondAttribute="top" type="default" id="lXk-6Y-ZVv"/>
-                            <constraint firstItem="2bS-sz-mVk" firstAttribute="top" secondItem="ilp-he-ebk" secondAttribute="bottom" type="default" id="xnm-L4-3HO"/>
+                            <constraint firstItem="2bS-sz-mVk" firstAttribute="bottom" secondItem="zpZ-Rh-E6h" secondAttribute="bottom" type="default" id="9n7-Ko-WQ1"/>
+                            <constraint firstItem="ilp-he-ebk" firstAttribute="bottom" secondItem="2bS-sz-mVk" secondAttribute="top" type="default" id="TyR-Xi-ahh"/>
+                            <constraint firstItem="2bS-sz-mVk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="XjZ-DX-4O1"/>
+                            <constraint firstItem="ilp-he-ebk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="qq7-ef-bJw"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="2bS-sz-mVk" id="4yK-Dc-e7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwh-kZ-eDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2006" y="-2499"/>
+            <point key="canvasLocation" x="-3006" y="-3277"/>
         </scene>
         <!--Select Actor View Controller-->
         <scene sceneID="Nn9-r0-WS3">
             <objects>
                 <viewController storyboardIdentifier="selectActorController" id="fZc-2d-qQT" customClass="PXHSelectActorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nY1-la-g7d">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXg-Ft-lk2">
@@ -174,13 +176,9 @@
                                             <action selector="tappedAddActor:" destination="fZc-2d-qQT" id="oO7-ES-EQx"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="22" style="plain" systemItem="fixedSpace" id="inu-44-hys"/>
                                 </items>
                             </toolbar>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-FF-VmD">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="714" id="AAd-WJ-x0Y"/>
-                                </constraints>
                                 <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ctw-R5-3yV">
                                     <size key="itemSize" width="150" height="150"/>
@@ -220,24 +218,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="1mp-nT-8Of"/>
-                            <constraint firstItem="PrH-FF-VmD" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="9dL-6j-tX0"/>
+                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="An6-nr-0jD"/>
                             <constraint firstItem="PrH-FF-VmD" firstAttribute="leading" secondItem="nY1-la-g7d" secondAttribute="leading" type="default" id="Gvh-fr-cgR"/>
+                            <constraint firstItem="PrH-FF-VmD" firstAttribute="top" secondItem="AXg-Ft-lk2" secondAttribute="bottom" type="default" id="LAS-ZV-XUc"/>
+                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="top" secondItem="nY1-la-g7d" secondAttribute="top" type="default" id="MWf-gF-Ao8"/>
                             <constraint firstItem="AXg-Ft-lk2" firstAttribute="leading" secondItem="nY1-la-g7d" secondAttribute="leading" type="default" id="NLn-27-7bP"/>
-                            <constraint firstItem="PrH-FF-VmD" firstAttribute="top" secondItem="AXg-Ft-lk2" secondAttribute="bottom" type="default" id="SKH-8w-r2E"/>
-                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="top" secondItem="nY1-la-g7d" secondAttribute="top" type="default" id="j7r-A3-ISG"/>
+                            <constraint firstItem="PrH-FF-VmD" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="cuE-MV-EI4"/>
+                            <constraint firstItem="PrH-FF-VmD" firstAttribute="bottom" secondItem="nY1-la-g7d" secondAttribute="bottom" type="default" id="o3d-9u-JFh"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="PrH-FF-VmD" id="nn9-u5-IjL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60q-5d-CIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1998" y="-1287"/>
+            <point key="canvasLocation" x="-3006" y="-2323"/>
         </scene>
     </scenes>
     <resources>
@@ -262,8 +262,6 @@
         <class className="PXHMainSceneViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHMainSceneViewController.h"/>
             <relationships>
-                <relationship kind="action" name="addActor:"/>
-                <relationship kind="action" name="selectBackground:"/>
                 <relationship kind="action" name="togglePlayback:"/>
                 <relationship kind="outlet" name="backgroundView" candidateClass="UIImageView"/>
             </relationships>
