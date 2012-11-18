@@ -61,7 +61,7 @@
 		0DEC5506165874D100F83FBE /* PXHEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC5505165874D100F83FBE /* PXHEditViewController.m */; };
 		0DEC5508165874F600F83FBE /* PXHEditViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DEC5507165874F600F83FBE /* PXHEditViewController.storyboard */; };
 		0DEC550B16587A6300F83FBE /* PXHPhotoEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC550A16587A6300F83FBE /* PXHPhotoEditorController.m */; };
-		0DEC550E16587E4D00F83FBE /* PXHPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC550D16587E4D00F83FBE /* PXHPathView.m */; };
+		0DEC550E16587E4D00F83FBE /* PXHPathControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC550D16587E4D00F83FBE /* PXHPathControl.m */; };
 		4DDB98AA1658021300B2F23D /* libPXAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98A6165801C100B2F23D /* libPXAPI.a */; };
 		4DDB98B61658032300B2F23D /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98B31658032300B2F23D /* libAviarySDK.a */; };
 		4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB98B51658032300B2F23D /* AviarySDKResources.bundle */; };
@@ -163,8 +163,8 @@
 		0DEC5507165874F600F83FBE /* PXHEditViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PXHEditViewController.storyboard; sourceTree = "<group>"; };
 		0DEC550916587A6300F83FBE /* PXHPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHPhotoEditorController.h; sourceTree = "<group>"; };
 		0DEC550A16587A6300F83FBE /* PXHPhotoEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHPhotoEditorController.m; sourceTree = "<group>"; };
-		0DEC550C16587E4D00F83FBE /* PXHPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHPathView.h; sourceTree = "<group>"; };
-		0DEC550D16587E4D00F83FBE /* PXHPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHPathView.m; sourceTree = "<group>"; };
+		0DEC550C16587E4D00F83FBE /* PXHPathControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHPathControl.h; sourceTree = "<group>"; };
+		0DEC550D16587E4D00F83FBE /* PXHPathControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHPathControl.m; sourceTree = "<group>"; };
 		4DDB989D165801C100B2F23D /* PXAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PXAPI.xcodeproj; path = "500px-iOS-api/PXAPI.xcodeproj"; sourceTree = "<group>"; };
 		4DDB98AD1658032300B2F23D /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
 		4DDB98AE1658032300B2F23D /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 				0DEC550916587A6300F83FBE /* PXHPhotoEditorController.h */,
 				0DEC550A16587A6300F83FBE /* PXHPhotoEditorController.m */,
 				0DEC5507165874F600F83FBE /* PXHEditViewController.storyboard */,
-				0DEC550C16587E4D00F83FBE /* PXHPathView.h */,
-				0DEC550D16587E4D00F83FBE /* PXHPathView.m */,
+				0DEC550C16587E4D00F83FBE /* PXHPathControl.h */,
+				0DEC550D16587E4D00F83FBE /* PXHPathControl.m */,
 				0DEC548716582EDD00F83FBE /* PXHCanvasView.h */,
 				0DEC548816582EDD00F83FBE /* PXHCanvasView.m */,
 				0DEC54961658458D00F83FBE /* Motors */,
@@ -540,7 +540,7 @@
 				0DEC54951658458600F83FBE /* PXHTranslateMotor.m in Sources */,
 				0DEC5506165874D100F83FBE /* PXHEditViewController.m in Sources */,
 				0DEC550B16587A6300F83FBE /* PXHPhotoEditorController.m in Sources */,
-				0DEC550E16587E4D00F83FBE /* PXHPathView.m in Sources */,
+				0DEC550E16587E4D00F83FBE /* PXHPathControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

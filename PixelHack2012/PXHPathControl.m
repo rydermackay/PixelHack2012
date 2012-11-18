@@ -1,18 +1,23 @@
 //
-//  PXHPathView.m
+//  PXHPathControl.m
 //  PixelHack2012
 //
 //  Created by Ryder Mackay on 2012-11-17.
 //  Copyright (c) 2012 Angry Marsupial. All rights reserved.
 //
 
-#import "PXHPathView.h"
+#import "PXHPathControl.h"
 
-@implementation PXHPathView {
+@implementation PXHPathControl {
     NSMutableArray *_controlPoints;
     CGPoint _startPoint;
     CGPoint _lastPoint;
     UIBezierPath *_bezierPath;
+}
+
+- (UIBezierPath *)path
+{
+    return [_bezierPath copy];
 }
 
 - (void)awakeFromNib
@@ -30,6 +35,7 @@
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
+            [_bezierPath moveToPoint:_startPoint];
             [_bezierPath addLineToPoint:currentPoint];
             break;
         }
@@ -53,14 +59,16 @@
         default:
             break;
     }
-//    CGRect displayRect = CGRectMake(MIN(_lastPoint.x, currentPoint.x),
-//                                    MIN(_lastPoint.y, currentPoint.y),
-//                                    MAX(_lastPoint.x, currentPoint.y),
-//                                    MAX(_lastPoint.y, currentPoint.y));
-//    displayRect = CGRectInset(displayRect, -5, -5);
-//    
-//    [self setNeedsDisplayInRect:displayRect];
+    
+    CGRect displayRect = CGRectMake(MIN(_lastPoint.x, currentPoint.x),
+                                    MIN(_lastPoint.y, currentPoint.y),
+                                    MAX(_lastPoint.x, currentPoint.y),
+                                    MAX(_lastPoint.y, currentPoint.y));
+    displayRect = CGRectInset(displayRect, -5, -5);
+    
+    [self setNeedsDisplayInRect:displayRect];
     [self setNeedsDisplay];
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
     
     _lastPoint = currentPoint;
 }
@@ -73,8 +81,8 @@
         UITouch *touch = [touches anyObject];
         _startPoint = [touch locationInView:self];
         _bezierPath = [[UIBezierPath alloc] init];
-        [_bezierPath moveToPoint:_startPoint];
         [self setNeedsDisplay];
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
         _lastPoint = _startPoint;
     }
 }

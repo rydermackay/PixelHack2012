@@ -12,5 +12,6 @@
 
 - (id)initWithImage:(UIImage *)image;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) void (^completionBlock)(PXHEditViewController *controller, UIImage *image);
 
 @end

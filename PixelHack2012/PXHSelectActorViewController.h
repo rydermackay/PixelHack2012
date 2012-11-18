@@ -11,5 +11,6 @@
 @interface PXHSelectActorViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 - (IBAction)tappedAddActor:(id)sender;
+@property (nonatomic, copy) void (^completionBlock)(PXHSelectActorViewController *controller, UIImage *image);
 
 @end

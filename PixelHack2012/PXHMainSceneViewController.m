@@ -10,10 +10,12 @@
 #import "PXHSelectImageViewController.h"
 #import "PXHSelectActorViewController.h"
 #import "PXHAudio.h"
+#import "PXHCanvasView.h"
 
 @interface PXHMainSceneViewController ()
 
 @property (nonatomic, strong) UIPopoverController *currentPopoverController;
+- (PXHCanvasView *)canvasView;
 
 @end
 
@@ -56,10 +58,23 @@
         PXHSelectActorViewController *controller = [(PXHSelectActorViewController *)segue.destinationViewController childViewControllers][0];
         NSParameterAssert([controller isKindOfClass:[PXHSelectActorViewController class]]);
         NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
+        
+        [controller setCompletionBlock:^(PXHSelectActorViewController *controller, UIImage *image) {
+            if (image != nil) {
+                [self.canvasView insertActorWithImage:image];
+            }
+        }];
 
         _actorPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
         self.currentPopoverController = _actorPopoverController;
     }
+}
+
+- (PXHCanvasView *)canvasView
+{
+    PXHCanvasView *view = (PXHCanvasView *)self.view;
+    NSParameterAssert([view isKindOfClass:[PXHCanvasView class]]);
+    return view;
 }
 
 - (IBAction)togglePlayback:(UIButton *)sender

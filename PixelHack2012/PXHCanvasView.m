@@ -264,4 +264,13 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
     }
 }
 
+- (void)insertActorWithImage:(UIImage *)image
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.userInteractionEnabled = YES;
+    imageView.center = self.center;
+    [self addSubview:imageView];
+    [_actors addObject:imageView];
+}
+
 @end

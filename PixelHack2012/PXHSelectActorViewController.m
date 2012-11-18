@@ -51,6 +51,14 @@
 {
     // present edit vc modally w/ image
     PXHEditViewController *editController = [[PXHEditViewController alloc] initWithImage:image];
+    [editController setCompletionBlock:^(PXHEditViewController *controller, UIImage *image) {
+        [controller dismissViewControllerAnimated:YES completion:nil];
+        __weak PXHSelectActorViewController *blockSelf = self;
+        if (self.completionBlock) {
+            self.completionBlock(blockSelf, image);
+        }
+    }];
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }

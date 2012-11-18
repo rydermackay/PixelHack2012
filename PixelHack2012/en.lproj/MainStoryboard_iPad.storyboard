@@ -313,6 +313,11 @@
         </class>
         <class className="PXHCanvasView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHCanvasView.h"/>
+            <relationships>
+                <relationship kind="action" name="didPan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="didPinch:" candidateClass="UIPinchGestureRecognizer"/>
+                <relationship kind="action" name="didRotate:" candidateClass="UIRotationGestureRecognizer"/>
+            </relationships>
         </class>
         <class className="PXHMainSceneViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHMainSceneViewController.h"/>
@@ -348,6 +353,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

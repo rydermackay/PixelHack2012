@@ -7,19 +7,68 @@
 //
 
 #import "PXHEditViewController.h"
-//#import "AFPhotoEditorController.h"
+#import "PXHPathControl.h"
 #import "PXHPhotoEditorController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PXHEditViewController () <AFPhotoEditorControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-
+- (IBAction)cancelButtonTapped:(id)sender;
+- (IBAction)doneButtonTapped:(id)sender;
 - (IBAction)filtersButtonTapped:(id)sender;
+@property (strong, nonatomic) IBOutlet PXHPathControl *pathControl;
+- (IBAction)pathControlChanged:(id)sender;
+
+- (void)updateInterface;
+
 @end
 
 
 
 @implementation PXHEditViewController
+
+- (IBAction)cancelButtonTapped:(id)sender
+{
+    __weak PXHEditViewController *blockSelf = self;
+    if (self.completionBlock) {
+        self.completionBlock(blockSelf, nil);
+    }
+}
+
+- (IBAction)doneButtonTapped:(id)sender
+{
+    UIBezierPath *path = self.pathControl.path;
+    CGRect pathBounds = path.bounds;
+    UIGraphicsBeginImageContextWithOptions(pathBounds.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(-CGRectGetMinX(pathBounds), -CGRectGetMinY(pathBounds));
+    [path applyTransform:transform];
+    [path addClip];
+    
+    // image rect
+    CGRect imageViewBounds = self.imageView.bounds;
+    CGSize imageSize = self.imageView.image.size;
+    
+    CGFloat widthScale = CGRectGetWidth(imageViewBounds) / imageSize.width;
+    CGFloat heightScale = CGRectGetHeight(imageViewBounds) / imageSize.height;
+    CGFloat scale = MIN(widthScale, heightScale);
+    
+    CGRect imageFrame = CGRectMake(floorf((CGRectGetWidth(imageViewBounds) - imageSize.width * scale) / 2.0f),
+                                   floorf((CGRectGetHeight(imageViewBounds) - imageSize.height * scale) / 2.0f),
+                                   imageSize.width * scale,
+                                   imageSize.height * scale);
+    imageFrame = CGRectOffset(imageFrame, -CGRectGetMinX(pathBounds), -CGRectGetMinY(pathBounds));
+    
+    [self.image drawInRect:imageFrame blendMode:kCGBlendModeCopy alpha:1];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    __weak PXHEditViewController *blockSelf = self;
+    if (self.completionBlock) {
+        self.completionBlock(blockSelf, image);
+    }
+}
 
 - (IBAction)filtersButtonTapped:(id)sender
 {
@@ -27,6 +76,11 @@
     controller.delegate = self;
     controller.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (IBAction)pathControlChanged:(id)sender
+{
+    [self updateInterface];
 }
 
 - (id)initWithImage:(UIImage *)image
@@ -48,6 +102,11 @@
 {
     [super viewDidLoad];
     
+    [self updateInterface];
+}
+
+- (void)updateInterface
+{
     self.imageView.image = self.image;
 }
 
@@ -58,7 +117,8 @@
     }
     
     _image = image;
-    self.imageView.image = _image;
+
+    [self updateInterface];
 }
 
 - (void)didReceiveMemoryWarning

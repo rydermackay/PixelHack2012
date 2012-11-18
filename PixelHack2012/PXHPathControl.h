@@ -1,5 +1,5 @@
 //
-//  PXHPathView.h
+//  PXHPathControl.h
 //  PixelHack2012
 //
 //  Created by Ryder Mackay on 2012-11-17.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PXHPathView : UIView
+@interface PXHPathControl : UIControl
+
+- (UIBezierPath *)path;
 
 @end

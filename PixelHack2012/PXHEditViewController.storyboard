@@ -13,8 +13,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="SJe-l4-pei"/>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-PB-Mu4" customClass="PXHPathView">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-PB-Mu4" customClass="PXHPathControl">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="pathControlChanged:" destination="Too-Yt-qwj" eventType="valueChanged" id="Zbe-cB-A8P"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d86-5d-P5s">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -46,12 +49,21 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Image" id="nRa-Dn-nBT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1En-Pl-cpb"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cWe-WH-R1e"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1En-Pl-cpb">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Too-Yt-qwj" id="SNd-zK-9g2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cWe-WH-R1e">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Too-Yt-qwj" id="K07-4z-LDV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <connections>
                         <outlet property="imageView" destination="SJe-l4-pei" id="OGr-MB-BH7"/>
+                        <outlet property="pathControl" destination="fnz-PB-Mu4" id="894-n3-tix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bd-AN-9SB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,12 +97,16 @@
         <class className="PXHEditViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHEditViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelButtonTapped:"/>
+                <relationship kind="action" name="doneButtonTapped:"/>
                 <relationship kind="action" name="filtersButtonTapped:"/>
+                <relationship kind="action" name="pathControlChanged:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="pathControl" candidateClass="PXHPathControl"/>
             </relationships>
         </class>
-        <class className="PXHPathView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHPathView.h"/>
+        <class className="PXHPathControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHPathControl.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

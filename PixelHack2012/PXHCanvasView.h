@@ -10,4 +10,6 @@
 
 @interface PXHCanvasView : UIView
 
+- (void)insertActorWithImage:(UIImage *)image;
+
 @end
