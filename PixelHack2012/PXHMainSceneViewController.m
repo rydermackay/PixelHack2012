@@ -11,6 +11,7 @@
 #import "PXHSelectActorViewController.h"
 #import "PXHAudio.h"
 #import "PXHCanvasView.h"
+#import "PXHFacesViewController.h"
 
 @interface PXHMainSceneViewController ()
 
@@ -22,15 +23,22 @@
 @implementation PXHMainSceneViewController {
     __weak UIPopoverController *_imagePopoverController;
     __weak UIPopoverController *_actorPopoverController;
+    __weak UIPopoverController *_facesPopoverController;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     BOOL shouldPerform = YES;
     if ([identifier isEqualToString:@"selectImageSegue"] && _imagePopoverController != nil) {
+        _imagePopoverController = nil;
         shouldPerform = NO;
     }
     else if ([identifier isEqualToString:@"selectActorSegue"] && _actorPopoverController != nil) {
+        _actorPopoverController = nil;
+        shouldPerform = NO;
+    }
+    else if ([identifier isEqualToString:@"selectFaceSegue"] && _facesPopoverController != nil) {
+        _facesPopoverController = nil;
         shouldPerform = NO;
     }
         
@@ -63,10 +71,26 @@
             if (image != nil) {
                 [self.canvasView insertActorWithImage:image];
             }
+            [_actorPopoverController dismissPopoverAnimated:YES];
         }];
 
         _actorPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
         self.currentPopoverController = _actorPopoverController;
+    }
+    else if ([segue.identifier isEqualToString:@"selectFaceSegue"]) {
+        PXHFacesViewController *controller = [(PXHFacesViewController *)segue.destinationViewController childViewControllers][0];
+        NSParameterAssert([controller isKindOfClass:[PXHFacesViewController class]]);
+        NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
+        
+        [controller setCompletionBlock:^(PXHFacesViewController *controller, NSArray *faceImages) {
+            if (faceImages != nil) {
+                [self.canvasView insertFaceWithImages:faceImages];
+            }
+            [_facesPopoverController dismissPopoverAnimated:YES];
+        }];
+        
+        _facesPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
+        self.currentPopoverController = _facesPopoverController;
     }
 }
 

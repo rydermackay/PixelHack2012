@@ -103,11 +103,12 @@
 @implementation PXHReusableSearchBarView
 @end
 
-@interface PXHSelectImageViewController () <UISearchBarDelegate>
+@interface PXHSelectImageViewController () <UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *groups;
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
+- (IBAction)cameraButtonTapped:(id)sender;
 
 @end
 
@@ -229,6 +230,31 @@
                                  NSLog(@"%@", error);
                              }
                          }];
+}
+
+- (IBAction)cameraButtonTapped:(id)sender
+{
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.delegate = self;
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    controller.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // write to saved photos
+
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self.delegate selectImageViewController:self didSelectImage:image];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

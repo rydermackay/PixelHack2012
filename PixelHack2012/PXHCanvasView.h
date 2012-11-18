@@ -11,5 +11,6 @@
 @interface PXHCanvasView : UIView
 
 - (void)insertActorWithImage:(UIImage *)image;
+- (void)insertFaceWithImages:(NSArray *)images;
 
 @end

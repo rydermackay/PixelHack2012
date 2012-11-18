@@ -72,6 +72,11 @@
                                             </barButtonItem>
                                             <barButtonItem image="Faces.png" style="plain" id="cJq-ew-1EG">
                                                 <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <segue destination="St4-Y0-88n" kind="popover" identifier="selectFaceSegue" popoverAnchorBarButtonItem="cJq-ew-1EG" id="jNF-Sp-Z0p">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem image="Actions.png" style="plain" id="b33-Dc-jcZ">
                                                 <color key="tintColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,7 +176,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Image" id="e8t-Ao-T9y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="0zh-z5-WxG"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="0zh-z5-WxG">
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="yow-3l-OAk" id="ChV-dD-Tzi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -317,6 +326,81 @@
             </objects>
             <point key="canvasLocation" x="-4383" y="-2594"/>
         </scene>
+        <!--Faces View Controller - Faces-->
+        <scene sceneID="PNH-HD-o7y">
+            <objects>
+                <viewController storyboardIdentifier="" id="lGM-I2-nJk" customClass="PXHFacesViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="CwY-Z6-d0i">
+                        <rect key="frame" x="0.0" y="44" width="703" height="724"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="aik-TF-gqa">
+                            <size key="itemSize" width="125" height="125"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="25" minY="25" maxX="25" maxY="25"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="9hB-O8-o6S" customClass="PXHSelectImageCell">
+                                <rect key="frame" x="25" y="25" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="MEu-Dd-5bo"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="MEu-Dd-5bo" firstAttribute="bottom" secondItem="9hB-O8-o6S" secondAttribute="bottom" type="default" id="AIe-hQ-IGJ"/>
+                                    <constraint firstItem="MEu-Dd-5bo" firstAttribute="leading" secondItem="9hB-O8-o6S" secondAttribute="leading" type="default" id="KpG-fF-4zL"/>
+                                    <constraint firstItem="MEu-Dd-5bo" firstAttribute="trailing" secondItem="9hB-O8-o6S" secondAttribute="trailing" type="default" id="fB9-SQ-BdH"/>
+                                    <constraint firstItem="MEu-Dd-5bo" firstAttribute="top" secondItem="9hB-O8-o6S" secondAttribute="top" type="default" id="ksp-hA-bdE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="MEu-Dd-5bo" id="0eR-pP-al3"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="lGM-I2-nJk" id="kUg-wY-LpK"/>
+                            <outlet property="delegate" destination="lGM-I2-nJk" id="gRV-Ga-aEM"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Faces" id="b8W-5n-ijB"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="480"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="CwY-Z6-d0i" id="Uta-H0-tdD"/>
+                        <outlet property="view" destination="CwY-Z6-d0i" id="m46-e6-7ug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nf-x0-67x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1227" y="-1419"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HAu-Nb-yfj">
+            <objects>
+                <navigationController id="St4-Y0-88n" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="480"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KY5-gv-XpD">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lGM-I2-nJk" kind="relationship" relationship="rootViewController" id="EIX-TO-GbM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kA3-cm-t1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2032" y="-1419"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Actions.png" width="25" height="10"/>
@@ -325,6 +409,67 @@
         <image name="Faces.png" width="21" height="13"/>
         <image name="File.png" width="14" height="14"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PXHCanvasView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHCanvasView.h"/>
+            <relationships>
+                <relationship kind="action" name="didPan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="didPinch:" candidateClass="UIPinchGestureRecognizer"/>
+                <relationship kind="action" name="didRotate:" candidateClass="UIRotationGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="PXHFacesViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHFacesViewController.h"/>
+        </class>
+        <class className="PXHMainSceneViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHMainSceneViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="togglePlayback:"/>
+                <relationship kind="outlet" name="backgroundView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PXHReusableSearchBarView" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHReusableSearchBarView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="PXHSelectActorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHSelectActorViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedAddActor:"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="PXHSelectImageCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHSelectImageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PXHSelectImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHSelectImageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cameraButtonTapped:"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
