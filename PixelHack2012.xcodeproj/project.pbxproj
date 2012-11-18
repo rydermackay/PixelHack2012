@@ -17,7 +17,6 @@
 		0D3AB1191657E87F007DB2BF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB1181657E87F007DB2BF /* Default.png */; };
 		0D3AB11B1657E87F007DB2BF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB11A1657E87F007DB2BF /* Default@2x.png */; };
 		0D3AB11D1657E87F007DB2BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */; };
-		0D3AB1201657E87F007DB2BF /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */; };
 		0D3AB1231657E87F007DB2BF /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */; };
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
 		0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */; };
@@ -39,6 +38,11 @@
 		4DDB98C1165803B900B2F23D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C0165803B900B2F23D /* OpenGLES.framework */; };
 		4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C2165803C200B2F23D /* libz.1.2.5.dylib */; };
 		4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98C4165803CD00B2F23D /* libsqlite3.0.dylib */; };
+		4DDB98C8165814D100B2F23D /* PXHMainSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB98C7165814D100B2F23D /* PXHMainSceneViewController.m */; };
+		4DDB98CB1658170400B2F23D /* PXHSelectImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB98CA1658170400B2F23D /* PXHSelectImageViewController.m */; };
+		4DDB98CD16581FE500B2F23D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDB98CC16581FE500B2F23D /* AssetsLibrary.framework */; };
+		4DDB98D41658242500B2F23D /* PXHSelectImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB98D31658242400B2F23D /* PXHSelectImageCell.m */; };
+		4DDB98D816584E0800B2F23D /* PXHSelectActorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDB98D716584E0800B2F23D /* PXHSelectActorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +77,6 @@
 		0D3AB1181657E87F007DB2BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0D3AB11A1657E87F007DB2BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0D3AB11F1657E87F007DB2BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		0D3AB1221657E87F007DB2BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		0D3AB1251657E880007DB2BF /* PixelHack2012.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PixelHack2012.xcdatamodel; sourceTree = "<group>"; };
 		0D3AB1271657E880007DB2BF /* PXHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHMasterViewController.h; sourceTree = "<group>"; };
@@ -109,6 +112,16 @@
 		4DDB98C0165803B900B2F23D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4DDB98C2165803C200B2F23D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		4DDB98C4165803CD00B2F23D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		4DDB98C6165814D100B2F23D /* PXHMainSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHMainSceneViewController.h; sourceTree = "<group>"; };
+		4DDB98C7165814D100B2F23D /* PXHMainSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHMainSceneViewController.m; sourceTree = "<group>"; };
+		4DDB98C91658170400B2F23D /* PXHSelectImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHSelectImageViewController.h; sourceTree = "<group>"; };
+		4DDB98CA1658170400B2F23D /* PXHSelectImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHSelectImageViewController.m; sourceTree = "<group>"; };
+		4DDB98CC16581FE500B2F23D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		4DDB98D21658242400B2F23D /* PXHSelectImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHSelectImageCell.h; sourceTree = "<group>"; };
+		4DDB98D31658242400B2F23D /* PXHSelectImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHSelectImageCell.m; sourceTree = "<group>"; };
+		4DDB98D516582C6400B2F23D /* PXHSelectImageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHSelectImageDelegate.h; sourceTree = "<group>"; };
+		4DDB98D616584E0800B2F23D /* PXHSelectActorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHSelectActorViewController.h; sourceTree = "<group>"; };
+		4DDB98D716584E0800B2F23D /* PXHSelectActorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHSelectActorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDB98CD16581FE500B2F23D /* AssetsLibrary.framework in Frameworks */,
 				0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */,
 				4DDB98C5165803CD00B2F23D /* libsqlite3.0.dylib in Frameworks */,
 				4DDB98C3165803C200B2F23D /* libz.1.2.5.dylib in Frameworks */,
@@ -156,6 +170,7 @@
 		0D3AB1031657E87F007DB2BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DDB98CC16581FE500B2F23D /* AssetsLibrary.framework */,
 				0D3AB182165827F3007DB2BF /* AudioToolbox.framework */,
 				0D3AB1041657E87F007DB2BF /* UIKit.framework */,
 				0D3AB1061657E87F007DB2BF /* Foundation.framework */,
@@ -183,10 +198,15 @@
 				0D3AB180165827DD007DB2BF /* PXHAudio.m */,
 				0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */,
 				0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */,
-				0D3AB1271657E880007DB2BF /* PXHMasterViewController.h */,
-				0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */,
-				0D3AB12A1657E880007DB2BF /* PXHDetailViewController.h */,
-				0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */,
+				4DDB98C6165814D100B2F23D /* PXHMainSceneViewController.h */,
+				4DDB98C7165814D100B2F23D /* PXHMainSceneViewController.m */,
+				4DDB98C91658170400B2F23D /* PXHSelectImageViewController.h */,
+				4DDB98CA1658170400B2F23D /* PXHSelectImageViewController.m */,
+				4DDB98D516582C6400B2F23D /* PXHSelectImageDelegate.h */,
+				4DDB98D21658242400B2F23D /* PXHSelectImageCell.h */,
+				4DDB98D31658242400B2F23D /* PXHSelectImageCell.m */,
+				4DDB98D616584E0800B2F23D /* PXHSelectActorViewController.h */,
+				4DDB98D716584E0800B2F23D /* PXHSelectActorViewController.m */,
 				0DEC548716582EDD00F83FBE /* PXHCanvasView.h */,
 				0DEC548816582EDD00F83FBE /* PXHCanvasView.m */,
 				0DEC54961658458D00F83FBE /* Motors */,
@@ -345,7 +365,6 @@
 				0D3AB1191657E87F007DB2BF /* Default.png in Resources */,
 				0D3AB11B1657E87F007DB2BF /* Default@2x.png in Resources */,
 				0D3AB11D1657E87F007DB2BF /* Default-568h@2x.png in Resources */,
-				0D3AB1201657E87F007DB2BF /* MainStoryboard_iPhone.storyboard in Resources */,
 				0D3AB1231657E87F007DB2BF /* MainStoryboard_iPad.storyboard in Resources */,
 				4DDB98B71658032300B2F23D /* AviarySDKResources.bundle in Resources */,
 			);
@@ -361,8 +380,10 @@
 				0D3AB1131657E87F007DB2BF /* main.m in Sources */,
 				0D3AB1171657E87F007DB2BF /* PXHAppDelegate.m in Sources */,
 				0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */,
-				0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */,
-				0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */,
+				4DDB98C8165814D100B2F23D /* PXHMainSceneViewController.m in Sources */,
+				4DDB98CB1658170400B2F23D /* PXHSelectImageViewController.m in Sources */,
+				4DDB98D41658242500B2F23D /* PXHSelectImageCell.m in Sources */,
+				4DDB98D816584E0800B2F23D /* PXHSelectActorViewController.m in Sources */,
 				0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */,
 				0DEC548916582EDD00F83FBE /* PXHCanvasView.m in Sources */,
 				0DEC548C1658314A00F83FBE /* PXHMotor.m in Sources */,
@@ -381,14 +402,6 @@
 				0D3AB1101657E87F007DB2BF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D3AB11F1657E87F007DB2BF /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */ = {
@@ -411,7 +424,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryder Mackay (KB7LG6A98A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -431,7 +444,6 @@
 					"-ObjC",
 					"-all_load",
 				);
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "04A9F2CF-AB58-4BD1-8DFC-93ED82470458";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,6 +488,7 @@
 					"\"$(SRCROOT)/aviary/AviarySDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -491,6 +504,7 @@
 					"\"$(SRCROOT)/aviary/AviarySDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
