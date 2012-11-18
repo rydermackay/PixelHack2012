@@ -38,10 +38,29 @@
 
 - (IBAction)doneButtonTapped:(id)sender
 {
+    UIImage *image;
+    UIBezierPath *path = self.pathControl.path;
+    if (path.isEmpty || path == nil) {
+        image = self.image;
+    }
+    else {
+        image = [self clippedImage];
+    }
+    
+    __weak PXHEditViewController *blockSelf = self;
+    if (self.completionBlock) {
+        self.completionBlock(blockSelf, image);
+    }
+}
+
+- (UIImage *)clippedImage
+{
     UIBezierPath *path = self.pathControl.path;
     CGRect pathBounds = path.bounds;
+    
     UIGraphicsBeginImageContextWithOptions(pathBounds.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGAffineTransform transform = CGAffineTransformMakeTranslation(-CGRectGetMinX(pathBounds), -CGRectGetMinY(pathBounds));
     [path applyTransform:transform];
     [path addClip];
@@ -59,15 +78,12 @@
                                    imageSize.width * scale,
                                    imageSize.height * scale);
     imageFrame = CGRectOffset(imageFrame, -CGRectGetMinX(pathBounds), -CGRectGetMinY(pathBounds));
-    
     [self.image drawInRect:imageFrame blendMode:kCGBlendModeCopy alpha:1];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
     
-    __weak PXHEditViewController *blockSelf = self;
-    if (self.completionBlock) {
-        self.completionBlock(blockSelf, image);
-    }
+    return image;
 }
 
 - (IBAction)filtersButtonTapped:(id)sender
