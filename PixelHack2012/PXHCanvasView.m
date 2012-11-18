@@ -311,4 +311,47 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
     [_motors addObject:motor];
 }
 
+- (IBAction)addTranslate:(id)sender
+{
+    
+}
+
+- (IBAction)addRotation:(id)sender
+{
+    
+}
+
+- (IBAction)addScale:(id)sender
+{
+    
+}
+
+- (IBAction)removeMotors:(id)sender
+{
+    
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (action == @selector(delete:)) {
+        return _trackingView != nil;
+    }
+    else {
+        return [super canPerformAction:action withSender:sender];
+    }
+}
+
+- (IBAction)delete:(id)sender
+{
+    for (PXHMotor *motor in [_motors copy]) {
+        if ([motor.linkedView isEqual:_trackingView]) {
+            [_motors removeObject:motor];
+        }
+    }
+    
+    [_actors removeObject:_trackingView];
+    [_trackingView removeFromSuperview];
+    _trackingView = nil;
+}
+
 @end
