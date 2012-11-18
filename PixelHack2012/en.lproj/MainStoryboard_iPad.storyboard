@@ -224,7 +224,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Ctx-qP-L12">
                             <connections>
                                 <action selector="tappedAddActor:" destination="fZc-2d-qQT" id="oO7-ES-EQx"/>
-                                <segue destination="yow-3l-OAk" kind="push" id="4AI-de-i0m"/>
+                                <segue destination="yow-3l-OAk" kind="push" identifier="selectImageSegue" id="4AI-de-i0m"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -313,9 +313,6 @@
         </class>
         <class className="PXHCanvasView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHCanvasView.h"/>
-            <relationships>
-                <relationship kind="action" name="didPan:" candidateClass="UIPanGestureRecognizer"/>
-            </relationships>
         </class>
         <class className="PXHMainSceneViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHMainSceneViewController.h"/>
@@ -351,9 +348,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
