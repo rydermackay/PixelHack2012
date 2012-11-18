@@ -21,6 +21,8 @@
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
 		0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB180165827DD007DB2BF /* PXHAudio.m */; };
 		0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3AB182165827F3007DB2BF /* AudioToolbox.framework */; };
+		0DE4B20D1658BDEF00926817 /* UIImage+INKAlphaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE4B20C1658BDEF00926817 /* UIImage+INKAlphaData.m */; };
+		0DE4B2101658BE2600926817 /* PXHImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE4B20F1658BE2600926817 /* PXHImageView.m */; };
 		0DEC548916582EDD00F83FBE /* PXHCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548816582EDD00F83FBE /* PXHCanvasView.m */; };
 		0DEC548C1658314A00F83FBE /* PXHMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548B1658314A00F83FBE /* PXHMotor.m */; };
 		0DEC548F165835D900F83FBE /* PXHScaleMotor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548E165835D900F83FBE /* PXHScaleMotor.m */; };
@@ -116,6 +118,10 @@
 		0D3AB17F165827DD007DB2BF /* PXHAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHAudio.h; sourceTree = "<group>"; };
 		0D3AB180165827DD007DB2BF /* PXHAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHAudio.m; sourceTree = "<group>"; };
 		0D3AB182165827F3007DB2BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0DE4B20B1658BDEF00926817 /* UIImage+INKAlphaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+INKAlphaData.h"; sourceTree = "<group>"; };
+		0DE4B20C1658BDEF00926817 /* UIImage+INKAlphaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+INKAlphaData.m"; sourceTree = "<group>"; };
+		0DE4B20E1658BE2600926817 /* PXHImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHImageView.h; sourceTree = "<group>"; };
+		0DE4B20F1658BE2600926817 /* PXHImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHImageView.m; sourceTree = "<group>"; };
 		0DEC548716582EDD00F83FBE /* PXHCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHCanvasView.h; sourceTree = "<group>"; };
 		0DEC548816582EDD00F83FBE /* PXHCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHCanvasView.m; sourceTree = "<group>"; };
 		0DEC548A1658314A00F83FBE /* PXHMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHMotor.h; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 				0DEC550D16587E4D00F83FBE /* PXHPathControl.m */,
 				0DEC548716582EDD00F83FBE /* PXHCanvasView.h */,
 				0DEC548816582EDD00F83FBE /* PXHCanvasView.m */,
+				0DE4B20E1658BE2600926817 /* PXHImageView.h */,
+				0DE4B20F1658BE2600926817 /* PXHImageView.m */,
 				0DEC54961658458D00F83FBE /* Motors */,
 				0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */,
 				0D3AB10D1657E87F007DB2BF /* Supporting Files */,
@@ -294,6 +302,8 @@
 		0D3AB10D1657E87F007DB2BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0DE4B20B1658BDEF00926817 /* UIImage+INKAlphaData.h */,
+				0DE4B20C1658BDEF00926817 /* UIImage+INKAlphaData.m */,
 				0DEC54C316586A1600F83FBE /* Assets */,
 				0D3AB10E1657E87F007DB2BF /* PixelHack2012-Info.plist */,
 				0D3AB10F1657E87F007DB2BF /* InfoPlist.strings */,
@@ -541,6 +551,8 @@
 				0DEC5506165874D100F83FBE /* PXHEditViewController.m in Sources */,
 				0DEC550B16587A6300F83FBE /* PXHPhotoEditorController.m in Sources */,
 				0DEC550E16587E4D00F83FBE /* PXHPathControl.m in Sources */,
+				0DE4B20D1658BDEF00926817 /* UIImage+INKAlphaData.m in Sources */,
+				0DE4B2101658BE2600926817 /* PXHImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

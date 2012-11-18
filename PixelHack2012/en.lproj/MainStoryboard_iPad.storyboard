@@ -171,7 +171,11 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Image" id="e8t-Ao-T9y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="0zh-z5-WxG"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="0zh-z5-WxG">
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="yow-3l-OAk" id="ChV-dD-Tzi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
