@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
 
-- (IBAction)selectBackground:(id)sender;
-- (IBAction)addActor:(id)sender;
+- (IBAction)togglePlayback:(id)sender;
 
 @end

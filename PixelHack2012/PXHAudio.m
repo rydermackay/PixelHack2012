@@ -271,14 +271,21 @@ static OSStatus InputModulatingRenderCallback (
     return self;
 }
 
-- (void)start
+- (void)setPlaying:(BOOL)playing
 {
-    CheckError (AudioOutputUnitStart (_effectState.rioUnit), "Couldn't start RIO unit");
-}
-
-- (void)stop
-{
-    CheckError(AudioOutputUnitStop(_effectState.rioUnit), "Couldn't stop RIO unit");
+    if (_playing == playing) {
+        return;
+    }
+    
+    _playing = playing;
+    
+    if (playing) {
+        CheckError(AudioOutputUnitStart (_effectState.rioUnit), "Couldn't start RIO unit");
+    }
+    else {
+        CheckError(AudioOutputUnitStop(_effectState.rioUnit), "Couldn't stop RIO unit");
+        _averageSample = 0;
+    }
 }
 
 - (AudioSampleType)averageSample

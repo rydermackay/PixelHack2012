@@ -9,39 +9,81 @@
 #import "PXHMainSceneViewController.h"
 #import "PXHSelectImageViewController.h"
 #import "PXHSelectActorViewController.h"
+#import "PXHAudio.h"
+#import "PXHCanvasView.h"
 
 @interface PXHMainSceneViewController ()
 
 @property (nonatomic, strong) UIPopoverController *currentPopoverController;
+- (PXHCanvasView *)canvasView;
 
 @end
 
-@implementation PXHMainSceneViewController
+@implementation PXHMainSceneViewController {
+    __weak UIPopoverController *_imagePopoverController;
+    __weak UIPopoverController *_actorPopoverController;
+}
 
-
-- (IBAction)selectBackground:(id)sender
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if (self.currentPopoverController != nil) {
-        [self.currentPopoverController dismissPopoverAnimated:YES];
-        self.currentPopoverController = nil;
-    } else {
-        PXHSelectImageViewController *selectImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"selectImagesController"];
-        selectImageViewController.delegate = self;
-        self.currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:selectImageViewController];
-        [self.currentPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    BOOL shouldPerform = YES;
+    if ([identifier isEqualToString:@"selectImageSegue"] && _imagePopoverController != nil) {
+        shouldPerform = NO;
+    }
+    else if ([identifier isEqualToString:@"selectActorSegue"] && _actorPopoverController != nil) {
+        shouldPerform = NO;
+    }
+        
+    [_currentPopoverController dismissPopoverAnimated:YES];
+    _currentPopoverController = nil;
+    
+    return shouldPerform;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.currentPopoverController dismissPopoverAnimated:YES];
+    self.currentPopoverController = nil;
+    
+    if ([segue.identifier isEqualToString:@"selectImageSegue"]) {
+        PXHSelectImageViewController *controller = [(PXHSelectImageViewController *)segue.destinationViewController childViewControllers][0];
+        NSParameterAssert([controller isKindOfClass:[PXHSelectImageViewController class]]);
+        NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
+        controller.delegate = self;
+
+        _imagePopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
+        self.currentPopoverController = _imagePopoverController;
+    }
+    else if ([segue.identifier isEqualToString:@"selectActorSegue"]) {
+        PXHSelectActorViewController *controller = [(PXHSelectActorViewController *)segue.destinationViewController childViewControllers][0];
+        NSParameterAssert([controller isKindOfClass:[PXHSelectActorViewController class]]);
+        NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
+        
+        [controller setCompletionBlock:^(PXHSelectActorViewController *controller, UIImage *image) {
+            if (image != nil) {
+                [self.canvasView insertActorWithImage:image];
+            }
+        }];
+
+        _actorPopoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
+        self.currentPopoverController = _actorPopoverController;
     }
 }
 
-- (IBAction)addActor:(id)sender {
-    if (self.currentPopoverController != nil) {
-        [self.currentPopoverController dismissPopoverAnimated:YES];
-        self.currentPopoverController = nil;
-    } else {
-        PXHSelectActorViewController *addViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"selectActorController"];
-//        addViewController.delegate = self;
-        self.currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:addViewController];
-        [self.currentPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }    
+- (PXHCanvasView *)canvasView
+{
+    PXHCanvasView *view = (PXHCanvasView *)self.view;
+    NSParameterAssert([view isKindOfClass:[PXHCanvasView class]]);
+    return view;
+}
+
+- (IBAction)togglePlayback:(UIButton *)sender
+{
+    PXHAudio *audio = [PXHAudio sharedInstance];
+    audio.playing = !audio.isPlaying;
+    
+    NSString *title = audio.isPlaying ? @"Pause" : @"Play";
+    [sender setTitle:title forState:UIControlStateNormal];
 }
 
 - (void)selectImageViewController:(PXHSelectImageViewController *)controller didSelectImage:(UIImage *)image

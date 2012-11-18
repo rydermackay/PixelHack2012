@@ -9,20 +9,21 @@
 #import "PXHSelectActorViewController.h"
 #import "PXHSelectImageCell.h"
 #import "PXHSelectImageViewController.h"
+#import "PXHEditViewController.h"
 
-@interface PXHSelectActorViewController ()
+@interface PXHSelectActorViewController () <PXHSelectImageDelegate>
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @end
 
 @implementation PXHSelectActorViewController
 
-- (IBAction)tappedAddActor:(id)sender {
-//    PXHSelectImageViewController *selectImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"selectImagesController"];
-//    selectImageViewController.delegate = self;
-//
-//    self.currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:selectImageViewController];
-//    [self.currentPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"selectImageSegue"]) {
+        PXHSelectImageViewController *controller = (PXHSelectImageViewController *)segue.destinationViewController;
+        NSParameterAssert([controller isKindOfClass:[PXHSelectImageViewController class]]);
+        controller.delegate = self;
+    }
 }
 
 
@@ -44,9 +45,22 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-}
+#pragma mark - PXHSelectImageDelegate methods
 
+- (void)selectImageViewController:(PXHSelectImageViewController *)controller didSelectImage:(UIImage *)image
+{
+    // present edit vc modally w/ image
+    PXHEditViewController *editController = [[PXHEditViewController alloc] initWithImage:image];
+    [editController setCompletionBlock:^(PXHEditViewController *controller, UIImage *image) {
+        [controller dismissViewControllerAnimated:YES completion:nil];
+        __weak PXHSelectActorViewController *blockSelf = self;
+        if (self.completionBlock) {
+            self.completionBlock(blockSelf, image);
+        }
+    }];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editController];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
 
 @end

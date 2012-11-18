@@ -13,10 +13,180 @@
 #import "PXHRotateMotor.h"
 #import "PXHTranslateMotor.h"
 
+@interface PXHCanvasView () <UIGestureRecognizerDelegate>
+
+@end
+
+
+
 @implementation PXHCanvasView {
     NSMutableArray *_motors;
     CADisplayLink *_displayLink;
     CGFloat _averageSample;
+    UIView *_trackingView;
+    NSMutableArray *_actors;
+    CGPoint _trackingViewCenter;
+    CGFloat _angle;
+    CGFloat _scale;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    _actors = [NSMutableArray new];
+    _scale = 1.0f;
+    _angle = 0.0f;
+    
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    panRecognizer.delegate = self;
+    [self addGestureRecognizer:panRecognizer];
+    
+    UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(didRotate:)];
+    rotationRecognizer.delegate = self;
+    [self addGestureRecognizer:rotationRecognizer];
+    
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
+    pinchRecognizer.delegate = self;
+    [self addGestureRecognizer:pinchRecognizer];
+}
+
+- (IBAction)didPan:(UIPanGestureRecognizer *)sender
+{
+    CGPoint translation = [sender translationInView:self];
+    _trackingView.center = CGPointMake(_trackingViewCenter.x + translation.x, _trackingViewCenter.y + translation.y);
+    
+    switch (sender.state) {
+        case UIGestureRecognizerStateCancelled: {
+            [UIView animateWithDuration:0.2f
+                             animations:^{
+                                 _trackingView.center = _trackingViewCenter;
+                                 _trackingView.alpha = 1.0f;
+                             }];
+            _trackingView = nil;
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            [UIView animateWithDuration:0.2f
+                             animations:^{
+                                 _trackingView.alpha = 1.0f;
+                             }];
+            _trackingView = nil;
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (IBAction)didRotate:(UIRotationGestureRecognizer *)sender
+{
+    CGFloat rotation = sender.rotation;
+    CGFloat deltaAngle = rotation - _angle;
+    
+    for (PXHMotor *motor in _motors) {
+        if ([motor.linkedView isEqual:_trackingView]) {
+            CGAffineTransform transform = CGAffineTransformMakeRotation(deltaAngle);
+            transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+            [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+            break;
+        }
+    }
+    
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+            _angle = rotation;
+            break;
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+            _angle = 0;
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)didPinch:(UIPinchGestureRecognizer *)sender
+{
+    CGFloat scale = sender.scale;
+    CGFloat deltaScale = scale - _scale + 1;
+    
+    for (PXHMotor *motor in _motors) {
+        if ([motor.linkedView isEqual:_trackingView]) {
+            CGAffineTransform transform = CGAffineTransformMakeScale(deltaScale, deltaScale);
+            transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+            [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+            break;
+        }
+    }
+    
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+            _scale = scale;
+            break;
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+            _scale = 1.0f;
+            break;
+        default:
+            break;
+    }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    // start tracking view in first touch
+    UITouch *touch = [touches anyObject];
+    UIView *view = touch.view;
+    
+    if ([_actors containsObject:view] && [view isEqual:_trackingView] == NO) {
+        
+        [UIView animateWithDuration:0.2f
+                         animations:^{
+                             _trackingView.alpha = 1.0f;
+                         }];
+        
+        _trackingView = view;
+        _trackingViewCenter = view.center;
+        [self bringSubviewToFront:view];
+        
+        [UIView animateWithDuration:0.2f
+                         animations:^{
+                             view.alpha = 0.5f;
+                         }];
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    
+    if ([[[touches anyObject] view] isEqual:_trackingView]) {
+        [UIView animateWithDuration:0.2f
+                         animations:^{
+                             _trackingView.alpha = 1.0f;
+                         }];
+        _trackingView = nil;
+    }
 }
 
 - (void)didMoveToWindow
@@ -41,7 +211,10 @@
         CGRect frame = CGRectMake(0, 0, 100, 100);
         UIView *view = [[UIView alloc] initWithFrame:frame];
         view.center = CGPointRandomInRect(CGRectInset(self.bounds, 50, 50));
-        view.backgroundColor = [UIColor redColor];
+        view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0f
+                                               green:arc4random_uniform(255)/255.0f
+                                                blue:arc4random_uniform(255)/255.0f
+                                               alpha:1.0f];
         
         PXHMotor *motor;
         
@@ -66,6 +239,7 @@
         motor.linkedView = view;
         
         [self addSubview:view];
+        [_actors addObject:view];
         [_motors addObject:motor];
     }
 }
@@ -88,6 +262,15 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
     for (PXHMotor *motor in _motors) {
         [motor updateLinkedViewWithSample:_averageSample];
     }
+}
+
+- (void)insertActorWithImage:(UIImage *)image
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.userInteractionEnabled = YES;
+    imageView.center = self.center;
+    [self addSubview:imageView];
+    [_actors addObject:imageView];
 }
 
 @end

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Too-Yt-qwj">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Edit View Controller - Edit Image-->
+        <scene sceneID="l1A-1R-bbv">
+            <objects>
+                <viewController id="Too-Yt-qwj" customClass="PXHEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dLN-ea-23Y">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="SJe-l4-pei"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-PB-Mu4" customClass="PXHPathControl">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="pathControlChanged:" destination="Too-Yt-qwj" eventType="valueChanged" id="Zbe-cB-A8P"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d86-5d-P5s">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Filters">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="filtersButtonTapped:" destination="Too-Yt-qwj" eventType="touchUpInside" id="YUn-n1-lti"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SJe-l4-pei" firstAttribute="leading" secondItem="dLN-ea-23Y" secondAttribute="leading" type="default" id="4h9-Gc-ose"/>
+                            <constraint firstItem="SJe-l4-pei" firstAttribute="bottom" secondItem="dLN-ea-23Y" secondAttribute="bottom" type="default" id="Bb9-lr-IRx"/>
+                            <constraint firstItem="fnz-PB-Mu4" firstAttribute="top" secondItem="dLN-ea-23Y" secondAttribute="top" type="default" id="WQc-xs-uFY"/>
+                            <constraint firstItem="fnz-PB-Mu4" firstAttribute="leading" secondItem="dLN-ea-23Y" secondAttribute="leading" type="default" id="YDK-Yl-GJu"/>
+                            <constraint firstItem="fnz-PB-Mu4" firstAttribute="bottom" secondItem="dLN-ea-23Y" secondAttribute="bottom" type="default" id="ZM7-Sr-aT5"/>
+                            <constraint firstItem="SJe-l4-pei" firstAttribute="top" secondItem="dLN-ea-23Y" secondAttribute="top" type="default" id="i2Z-IP-uTS"/>
+                            <constraint firstItem="d86-5d-P5s" firstAttribute="top" secondItem="dLN-ea-23Y" secondAttribute="top" constant="33" id="mkE-HW-giI"/>
+                            <constraint firstItem="fnz-PB-Mu4" firstAttribute="trailing" secondItem="dLN-ea-23Y" secondAttribute="trailing" type="default" id="qFX-9B-mOG"/>
+                            <constraint firstItem="SJe-l4-pei" firstAttribute="trailing" secondItem="dLN-ea-23Y" secondAttribute="trailing" type="default" id="v0I-jz-V7W"/>
+                            <constraint firstAttribute="trailing" secondItem="d86-5d-P5s" secondAttribute="trailing" constant="92" id="v3h-EA-H3T"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Image" id="nRa-Dn-nBT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1En-Pl-cpb">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Too-Yt-qwj" id="SNd-zK-9g2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cWe-WH-R1e">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Too-Yt-qwj" id="K07-4z-LDV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="SJe-l4-pei" id="OGr-MB-BH7"/>
+                        <outlet property="pathControl" destination="fnz-PB-Mu4" id="894-n3-tix"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bd-AN-9SB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-378"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nmg-LS-UQE">
+            <objects>
+                <navigationController id="8NR-V1-47t" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="ONv-06-02F">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Too-Yt-qwj" kind="relationship" relationship="rootViewController" id="cBm-OO-5uy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBt-mr-K2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158" y="-378"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PXHEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonTapped:"/>
+                <relationship kind="action" name="doneButtonTapped:"/>
+                <relationship kind="action" name="filtersButtonTapped:"/>
+                <relationship kind="action" name="pathControlChanged:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="pathControl" candidateClass="PXHPathControl"/>
+            </relationships>
+        </class>
+        <class className="PXHPathControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHPathControl.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

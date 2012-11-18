@@ -1,5 +1,5 @@
 //
-//  PXHCanvasView.h
+//  PXHPathControl.h
 //  PixelHack2012
 //
 //  Created by Ryder Mackay on 2012-11-17.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PXHCanvasView : UIView
+@interface PXHPathControl : UIControl
 
-- (void)insertActorWithImage:(UIImage *)image;
+- (UIBezierPath *)path;
 
 @end

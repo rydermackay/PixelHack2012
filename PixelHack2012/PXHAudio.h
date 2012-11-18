@@ -19,8 +19,7 @@ typedef struct {
 @interface PXHAudio : NSObject
 
 + (PXHAudio *)sharedInstance;
-- (void)start;
-- (void)stop;
+@property (nonatomic, assign, getter = isPlaying) BOOL playing;
 - (AudioSampleType)averageSample;
 @property (nonatomic, assign) EffectState effectState;
 
