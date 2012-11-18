@@ -18,6 +18,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UIToolbar *toolbar = [UIToolbar appearance];
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"WhiteToolbar.png"]
+             forToolbarPosition:UIToolbarPositionAny
+                     barMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 							
