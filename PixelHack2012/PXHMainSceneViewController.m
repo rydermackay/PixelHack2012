@@ -9,6 +9,7 @@
 #import "PXHMainSceneViewController.h"
 #import "PXHSelectImageViewController.h"
 #import "PXHSelectActorViewController.h"
+#import "PXHAudio.h"
 
 @interface PXHMainSceneViewController ()
 
@@ -42,6 +43,15 @@
         self.currentPopoverController = [[UIPopoverController alloc] initWithContentViewController:addViewController];
         [self.currentPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }    
+}
+
+- (IBAction)togglePlayback:(UIButton *)sender
+{
+    PXHAudio *audio = [PXHAudio sharedInstance];
+    audio.playing = !audio.isPlaying;
+    
+    NSString *title = audio.isPlaying ? @"Pause" : @"Play";
+    [sender setTitle:title forState:UIControlStateNormal];
 }
 
 - (void)selectImageViewController:(PXHSelectImageViewController *)controller didSelectImage:(UIImage *)image

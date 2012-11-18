@@ -19,8 +19,6 @@
 		0D3AB11D1657E87F007DB2BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */; };
 		0D3AB1231657E87F007DB2BF /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */; };
 		0D3AB1261657E880007DB2BF /* PixelHack2012.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1241657E880007DB2BF /* PixelHack2012.xcdatamodeld */; };
-		0D3AB1291657E880007DB2BF /* PXHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */; };
-		0D3AB12C1657E880007DB2BF /* PXHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */; };
 		0D3AB181165827DD007DB2BF /* PXHAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3AB180165827DD007DB2BF /* PXHAudio.m */; };
 		0D3AB183165827F3007DB2BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3AB182165827F3007DB2BF /* AudioToolbox.framework */; };
 		0DEC548916582EDD00F83FBE /* PXHCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEC548816582EDD00F83FBE /* PXHCanvasView.m */; };
@@ -79,10 +77,6 @@
 		0D3AB11C1657E87F007DB2BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0D3AB1221657E87F007DB2BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		0D3AB1251657E880007DB2BF /* PixelHack2012.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PixelHack2012.xcdatamodel; sourceTree = "<group>"; };
-		0D3AB1271657E880007DB2BF /* PXHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHMasterViewController.h; sourceTree = "<group>"; };
-		0D3AB1281657E880007DB2BF /* PXHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHMasterViewController.m; sourceTree = "<group>"; };
-		0D3AB12A1657E880007DB2BF /* PXHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PXHDetailViewController.h; sourceTree = "<group>"; };
-		0D3AB12B1657E880007DB2BF /* PXHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PXHDetailViewController.m; sourceTree = "<group>"; };
 		0D3AB17F165827DD007DB2BF /* PXHAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHAudio.h; sourceTree = "<group>"; };
 		0D3AB180165827DD007DB2BF /* PXHAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHAudio.m; sourceTree = "<group>"; };
 		0D3AB182165827F3007DB2BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -196,7 +190,6 @@
 				0D3AB1161657E87F007DB2BF /* PXHAppDelegate.m */,
 				0D3AB17F165827DD007DB2BF /* PXHAudio.h */,
 				0D3AB180165827DD007DB2BF /* PXHAudio.m */,
-				0D3AB11E1657E87F007DB2BF /* MainStoryboard_iPhone.storyboard */,
 				0D3AB1211657E87F007DB2BF /* MainStoryboard_iPad.storyboard */,
 				4DDB98C6165814D100B2F23D /* PXHMainSceneViewController.h */,
 				4DDB98C7165814D100B2F23D /* PXHMainSceneViewController.m */,
