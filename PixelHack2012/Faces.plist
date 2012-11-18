@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>Glasses</string>
+		</array>
+	</dict>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>Mustache</string>
+		</array>
+	</dict>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>BigMouth_1</string>
+			<string>BigMouth_2</string>
+			<string>BigMouth_3</string>
+			<string>BigMouth_4</string>
+		</array>
+	</dict>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>LipsMouth_1</string>
+			<string>LipsMouth_2</string>
+			<string>LipsMouth_3</string>
+			<string>LipsMouth_4</string>
+		</array>
+	</dict>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>GregsHead</string>
+		</array>
+	</dict>
+	<dict>
+		<key>images</key>
+		<array>
+			<string>Moustache</string>
+		</array>
+	</dict>
+</array>
+</plist>

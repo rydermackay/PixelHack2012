@@ -13,6 +13,7 @@
 #import "PXHRotateMotor.h"
 #import "PXHTranslateMotor.h"
 #import "PXHImageView.h"
+#import "PXHImageCycleMotor.h"
 
 @interface PXHCanvasView () <UIGestureRecognizerDelegate>
 
@@ -295,6 +296,19 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
     imageView.center = self.center;
     [self addSubview:imageView];
     [_actors addObject:imageView];
+}
+
+- (void)insertFaceWithImages:(NSArray *)images
+{
+    PXHImageView *imageView = [[PXHImageView alloc] initWithImage:images[0]];
+    imageView.animationImages = images;
+    imageView.userInteractionEnabled = YES;
+    imageView.center = self.center;
+    [self addSubview:imageView];
+    [_actors addObject:imageView];
+    PXHImageCycleMotor *motor = [[PXHImageCycleMotor alloc] init];
+    motor.linkedView = imageView;
+    [_motors addObject:motor];
 }
 
 @end
