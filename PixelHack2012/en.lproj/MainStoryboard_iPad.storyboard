@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="R6w-jS-TWQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="xOP-Ot-FCs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -9,40 +9,9 @@
             <objects>
                 <viewController id="R6w-jS-TWQ" customClass="PXHMainSceneViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iAf-pk-HyW" customClass="PXHCanvasView">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-Dh-HEz">
-                                <items>
-                                    <barButtonItem image="File.png" style="plain" id="0go-Pz-uvR">
-                                        <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bDn-lX-R8Z"/>
-                                    <barButtonItem image="Background.png" style="plain" id="SGT-n3-CXD">
-                                        <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="yow-3l-OAk" kind="popover" identifier="selectImageSegue" popoverAnchorBarButtonItem="SGT-n3-CXD" id="gwR-og-5Z4">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="Add.png" style="plain" id="Uew-gP-AZ0">
-                                        <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="fZc-2d-qQT" kind="popover" identifier="selectActorSegue" popoverAnchorBarButtonItem="Uew-gP-AZ0" id="oNP-Ye-1We">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="Faces.png" style="plain" id="cJq-ew-1EG">
-                                        <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem image="Actions.png" style="plain" id="b33-Dc-jcZ">
-                                        <color key="tintColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-lf-1E8">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -66,39 +35,76 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ao1-lf-1E8" firstAttribute="trailing" secondItem="iAf-pk-HyW" secondAttribute="trailing" type="default" id="8Yv-OJ-Drh"/>
-                            <constraint firstItem="Zlf-Dh-HEz" firstAttribute="trailing" secondItem="iAf-pk-HyW" secondAttribute="trailing" type="default" id="KIQ-M8-EnT"/>
                             <constraint firstAttribute="bottom" secondItem="Olw-zd-Co2" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="KPx-tJ-PWL"/>
                             <constraint firstItem="Ao1-lf-1E8" firstAttribute="leading" secondItem="iAf-pk-HyW" secondAttribute="leading" type="default" id="auc-yJ-ta6"/>
                             <constraint firstItem="Olw-zd-Co2" firstAttribute="leading" secondItem="iAf-pk-HyW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="e0i-Xt-wKN"/>
-                            <constraint firstItem="Zlf-Dh-HEz" firstAttribute="leading" secondItem="iAf-pk-HyW" secondAttribute="leading" type="default" id="kO7-g5-GMh"/>
-                            <constraint firstItem="Zlf-Dh-HEz" firstAttribute="top" secondItem="iAf-pk-HyW" secondAttribute="top" type="default" id="p2B-YJ-ma3"/>
                             <constraint firstItem="Ao1-lf-1E8" firstAttribute="bottom" secondItem="iAf-pk-HyW" secondAttribute="bottom" type="default" id="u1S-5C-tmH"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationItem key="navigationItem" id="f5g-wg-FJ6">
+                        <barButtonItem key="leftBarButtonItem" image="File.png" style="plain" id="0go-Pz-uvR">
+                            <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="i3r-yZ-LT5">
+                            <view key="customView" contentMode="scaleToFill" id="Ldo-4q-u83">
+                                <rect key="frame" x="790" y="5" width="227" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-Dh-HEz">
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="bDn-lX-R8Z"/>
+                                            <barButtonItem image="Background.png" style="plain" id="SGT-n3-CXD">
+                                                <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <segue destination="VEM-k9-8i6" kind="popover" identifier="selectImageSegue" popoverAnchorBarButtonItem="SGT-n3-CXD" id="gwR-og-5Z4">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="Add.png" style="plain" id="Uew-gP-AZ0">
+                                                <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <segue destination="LSI-yQ-oET" kind="popover" identifier="selectActorSegue" popoverAnchorBarButtonItem="Uew-gP-AZ0" id="oNP-Ye-1We">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="Faces.png" style="plain" id="cJq-ew-1EG">
+                                                <color key="tintColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </barButtonItem>
+                                            <barButtonItem image="Actions.png" style="plain" id="b33-Dc-jcZ">
+                                                <color key="tintColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Zlf-Dh-HEz" firstAttribute="top" secondItem="Ldo-4q-u83" secondAttribute="top" type="default" id="3DT-hX-iiV"/>
+                                    <constraint firstItem="Zlf-Dh-HEz" firstAttribute="trailing" secondItem="Ldo-4q-u83" secondAttribute="trailing" type="default" id="5IU-tA-i6l"/>
+                                    <constraint firstItem="Zlf-Dh-HEz" firstAttribute="leading" secondItem="Ldo-4q-u83" secondAttribute="leading" type="default" id="Vr8-4n-pxb"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="Ao1-lf-1E8" id="pfn-Dc-3Yg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iz0-pe-dWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4243" y="-2594"/>
+            <point key="canvasLocation" x="-3269" y="-2594"/>
         </scene>
-        <!--Select Image View Controller-->
+        <!--Select Image View Controller - Select Image-->
         <scene sceneID="e6V-n1-yvf">
             <objects>
                 <viewController storyboardIdentifier="selectImagesController" id="yow-3l-OAk" customClass="PXHSelectImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zpZ-Rh-E6h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
+                        <rect key="frame" x="0.0" y="44" width="703" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilp-he-ebk">
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="V0W-ce-n41"/>
-                                    <barButtonItem style="plain" systemItem="camera" id="0zh-z5-WxG"/>
-                                </items>
-                            </toolbar>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-sz-mVk">
                                 <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y3q-CX-suq">
@@ -139,45 +145,34 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="leading" secondItem="zpZ-Rh-E6h" secondAttribute="leading" type="default" id="5PL-6d-fmT"/>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="top" secondItem="zpZ-Rh-E6h" secondAttribute="top" type="default" id="8zZ-Uv-Hpo"/>
                             <constraint firstItem="2bS-sz-mVk" firstAttribute="leading" secondItem="zpZ-Rh-E6h" secondAttribute="leading" type="default" id="9cI-n6-jIk"/>
                             <constraint firstItem="2bS-sz-mVk" firstAttribute="bottom" secondItem="zpZ-Rh-E6h" secondAttribute="bottom" type="default" id="9n7-Ko-WQ1"/>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="bottom" secondItem="2bS-sz-mVk" secondAttribute="top" type="default" id="TyR-Xi-ahh"/>
+                            <constraint firstItem="2bS-sz-mVk" firstAttribute="top" secondItem="zpZ-Rh-E6h" secondAttribute="top" type="default" id="Q3f-BT-ZqZ"/>
                             <constraint firstItem="2bS-sz-mVk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="XjZ-DX-4O1"/>
-                            <constraint firstItem="ilp-he-ebk" firstAttribute="trailing" secondItem="zpZ-Rh-E6h" secondAttribute="trailing" type="default" id="qq7-ef-bJw"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Image" id="e8t-Ao-T9y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="0zh-z5-WxG"/>
+                    </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="2bS-sz-mVk" id="4yK-Dc-e7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwh-kZ-eDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3006" y="-3277"/>
+            <point key="canvasLocation" x="-1214" y="-3277"/>
         </scene>
-        <!--Select Actor View Controller-->
+        <!--Select Actor View Controller - Select Actor-->
         <scene sceneID="Nn9-r0-WS3">
             <objects>
                 <viewController storyboardIdentifier="selectActorController" id="fZc-2d-qQT" customClass="PXHSelectActorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nY1-la-g7d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
+                        <rect key="frame" x="0.0" y="44" width="703" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXg-Ft-lk2">
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cTW-IB-Tln"/>
-                                    <barButtonItem style="plain" systemItem="add" id="Ctx-qP-L12">
-                                        <connections>
-                                            <action selector="tappedAddActor:" destination="fZc-2d-qQT" id="oO7-ES-EQx"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-FF-VmD">
                                 <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ctw-R5-3yV">
@@ -218,26 +213,91 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="An6-nr-0jD"/>
                             <constraint firstItem="PrH-FF-VmD" firstAttribute="leading" secondItem="nY1-la-g7d" secondAttribute="leading" type="default" id="Gvh-fr-cgR"/>
-                            <constraint firstItem="PrH-FF-VmD" firstAttribute="top" secondItem="AXg-Ft-lk2" secondAttribute="bottom" type="default" id="LAS-ZV-XUc"/>
-                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="top" secondItem="nY1-la-g7d" secondAttribute="top" type="default" id="MWf-gF-Ao8"/>
-                            <constraint firstItem="AXg-Ft-lk2" firstAttribute="leading" secondItem="nY1-la-g7d" secondAttribute="leading" type="default" id="NLn-27-7bP"/>
+                            <constraint firstItem="PrH-FF-VmD" firstAttribute="top" secondItem="nY1-la-g7d" secondAttribute="top" type="default" id="Th5-mw-Wys"/>
                             <constraint firstItem="PrH-FF-VmD" firstAttribute="trailing" secondItem="nY1-la-g7d" secondAttribute="trailing" type="default" id="cuE-MV-EI4"/>
                             <constraint firstItem="PrH-FF-VmD" firstAttribute="bottom" secondItem="nY1-la-g7d" secondAttribute="bottom" type="default" id="o3d-9u-JFh"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Actor" id="MS8-fw-4gs">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Ctx-qP-L12">
+                            <connections>
+                                <action selector="tappedAddActor:" destination="fZc-2d-qQT" id="oO7-ES-EQx"/>
+                                <segue destination="yow-3l-OAk" kind="push" id="4AI-de-i0m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="600" height="768"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="PrH-FF-VmD" id="nn9-u5-IjL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60q-5d-CIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3006" y="-2323"/>
+            <point key="canvasLocation" x="-1227" y="-2323"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zya-eb-xT0">
+            <objects>
+                <navigationController id="VEM-k9-8i6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="704"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dGh-Wg-81t">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yow-3l-OAk" kind="relationship" relationship="rootViewController" id="r92-6t-o3U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p82-VR-aBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2032" y="-3277"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vc4-dI-Ye4">
+            <objects>
+                <navigationController id="LSI-yQ-oET" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <value key="contentSizeForViewInPopover" type="size" width="600" height="704"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VvF-Ot-QO2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fZc-2d-qQT" kind="relationship" relationship="rootViewController" id="RHy-r4-PzV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcX-Gh-koU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2032" y="-2323"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hwu-2i-3aC">
+            <objects>
+                <navigationController id="xOP-Ot-FCs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E4Z-3k-MkX">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="R6w-jS-TWQ" kind="relationship" relationship="rootViewController" id="RLy-vV-SXL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CE4-wf-Oy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4383" y="-2594"/>
         </scene>
     </scenes>
     <resources>
@@ -255,8 +315,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PXHCanvasView.h"/>
             <relationships>
                 <relationship kind="action" name="didPan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="didPinch:" candidateClass="UIPinchGestureRecognizer"/>
-                <relationship kind="action" name="didRotate:" candidateClass="UIRotationGestureRecognizer"/>
             </relationships>
         </class>
         <class className="PXHMainSceneViewController" superclassName="UIViewController">
@@ -294,10 +352,16 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="4AI-de-i0m"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -44,7 +44,7 @@
     self.currentPopoverController = nil;
     
     if ([segue.identifier isEqualToString:@"selectImageSegue"]) {
-        PXHSelectImageViewController *controller = (PXHSelectImageViewController *)segue.destinationViewController;
+        PXHSelectImageViewController *controller = [(PXHSelectImageViewController *)segue.destinationViewController childViewControllers][0];
         NSParameterAssert([controller isKindOfClass:[PXHSelectImageViewController class]]);
         NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
         controller.delegate = self;
@@ -53,7 +53,7 @@
         self.currentPopoverController = _imagePopoverController;
     }
     else if ([segue.identifier isEqualToString:@"selectActorSegue"]) {
-        PXHSelectActorViewController *controller = (PXHSelectActorViewController *)segue.destinationViewController;
+        PXHSelectActorViewController *controller = [(PXHSelectActorViewController *)segue.destinationViewController childViewControllers][0];
         NSParameterAssert([controller isKindOfClass:[PXHSelectActorViewController class]]);
         NSParameterAssert([segue isKindOfClass:[UIStoryboardPopoverSegue class]]);
 
