@@ -41,6 +41,7 @@
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
     panRecognizer.delegate = self;
+    panRecognizer.maximumNumberOfTouches = 1;
     [self addGestureRecognizer:panRecognizer];
     
     UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(didRotate:)];
@@ -85,14 +86,25 @@
     CGFloat rotation = sender.rotation;
     CGFloat deltaAngle = rotation - _angle;
     
-    for (PXHMotor *motor in _motors) {
-        if ([motor.linkedView isEqual:_trackingView]) {
-            CGAffineTransform transform = CGAffineTransformMakeRotation(deltaAngle);
-            transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
-            [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
-            break;
+    NSUInteger index = [_motors indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj linkedView] isEqual:_trackingView]) {
+            return YES;
+        } else {
+            return NO;
         }
+    }];
+    
+    PXHRotateMotor *motor = nil;
+    if (index == NSNotFound) {
+        motor = [PXHRotateMotor new];
+        motor.linkedView = _trackingView;
+        [_motors addObject:motor];
+    } else {
+        motor = _motors[index];
     }
+    CGAffineTransform transform = CGAffineTransformMakeRotation(deltaAngle);
+    transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+    [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
@@ -112,15 +124,26 @@
 {
     CGFloat scale = sender.scale;
     CGFloat deltaScale = scale - _scale + 1;
-    
-    for (PXHMotor *motor in _motors) {
-        if ([motor.linkedView isEqual:_trackingView]) {
-            CGAffineTransform transform = CGAffineTransformMakeScale(deltaScale, deltaScale);
-            transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
-            [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
-            break;
+    NSLog(@"scale:%f, %f", scale, deltaScale);
+    NSUInteger index = [_motors indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj linkedView] isEqual:_trackingView]) {
+            return YES;
+        } else {
+            return NO;
         }
+    }];
+    
+    PXHScaleMotor *motor = nil;
+    if (index == NSNotFound) {
+        motor = [PXHScaleMotor new];
+        motor.linkedView = _trackingView;
+        [_motors addObject:motor];
+    } else {
+        motor = _motors[index];
     }
+    CGAffineTransform transform = CGAffineTransformMakeScale(deltaScale, deltaScale);
+    transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+    [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
