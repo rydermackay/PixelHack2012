@@ -52,6 +52,10 @@
     UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(didPinch:)];
     pinchRecognizer.delegate = self;
     [self addGestureRecognizer:pinchRecognizer];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+    tapRecognizer.delegate = self;
+    [self addGestureRecognizer:tapRecognizer];
 }
 
 - (IBAction)didPan:(UIPanGestureRecognizer *)sender
@@ -157,6 +161,56 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)didTap:(UITapGestureRecognizer *)sender
+{
+    CGPoint point = [sender locationInView:self];
+    UIView *view = [self hitTest:point withEvent:nil];
+    
+    if ([_actors containsObject:view]) {
+        NSIndexSet *indexSet = [_motors indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+            if ([[obj linkedView] isEqual:view]) {
+                return YES;
+            } else {
+                return NO;
+            }
+        }];
+        
+        NSMutableArray *menuItems = [NSMutableArray new];
+        BOOL hasScale, hasRotate, hasTranslate = NO;
+        for (PXHMotor *motor in [_motors objectsAtIndexes:indexSet]) {
+            if (!hasScale && [motor isMemberOfClass:[PXHScaleMotor class]])
+                hasScale = YES;
+            if (!hasRotate && [motor isMemberOfClass:[PXHRotateMotor class]])
+                hasRotate = YES;
+            if (!hasTranslate && [motor isMemberOfClass:[PXHTranslateMotor class]])
+                hasTranslate = YES;
+        }
+
+        if (hasScale) {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Scale" action:@selector(removeScaleMotor:)]];
+        } else {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Scale" action:@selector(addScaleMotor:)]];
+        }
+
+        if (hasRotate) {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Rotate" action:@selector(removeRotateMotor:)]];
+        } else {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Rotate" action:@selector(addRotateMotor:)]];
+        }
+
+        if (hasTranslate) {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Translate" action:@selector(removeTranslateMotor:)]];
+        } else {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Translate" action:@selector(addTranslateMotor:)]];
+        }
+
+        
+        [[UIMenuController sharedMenuController] setMenuItems:menuItems];
+
+        [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
     }
 }
 
