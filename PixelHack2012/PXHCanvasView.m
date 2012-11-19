@@ -30,6 +30,7 @@
     CGPoint _trackingViewCenter;
     CGFloat _angle;
     CGFloat _scale;
+    UIView *_selectedView;
 }
 
 - (void)awakeFromNib
@@ -99,17 +100,15 @@
         }
     }];
     
-    PXHRotateMotor *motor = nil;
-    if (index == NSNotFound) {
-        motor = [PXHRotateMotor new];
-        motor.linkedView = _trackingView;
-        [_motors addObject:motor];
-    } else {
-        motor = _motors[index];
-    }
     CGAffineTransform transform = CGAffineTransformMakeRotation(deltaAngle);
-    transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
-    [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+
+    if (index == NSNotFound) {
+        _trackingView.transform = CGAffineTransformConcat(_trackingView.transform, transform);
+    } else {
+        PXHRotateMotor *motor = _motors[index];
+        transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+        [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+    }
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
@@ -129,26 +128,19 @@
 {
     CGFloat scale = sender.scale;
     CGFloat deltaScale = scale - _scale + 1;
-    NSLog(@"scale:%f, %f", scale, deltaScale);
-    NSUInteger index = [_motors indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        if ([[obj linkedView] isEqual:_trackingView]) {
-            return YES;
-        } else {
-            return NO;
-        }
+    NSUInteger index = [_motors indexOfObjectPassingTest:^BOOL(PXHMotor *motor, NSUInteger idx, BOOL *stop) {
+        return [motor.linkedView isEqual:_trackingView];
     }];
     
-    PXHScaleMotor *motor = nil;
-    if (index == NSNotFound) {
-        motor = [PXHScaleMotor new];
-        motor.linkedView = _trackingView;
-        [_motors addObject:motor];
-    } else {
-        motor = _motors[index];
-    }
     CGAffineTransform transform = CGAffineTransformMakeScale(deltaScale, deltaScale);
-    transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
-    [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+    
+    if (index == NSNotFound) {
+        _trackingView.transform = CGAffineTransformConcat(_trackingView.transform, transform);
+    } else {
+        PXHScaleMotor *motor = _motors[index];
+        transform = CGAffineTransformConcat(transform, [motor.originalValue CGAffineTransformValue]);
+        [motor setValue:[NSValue valueWithCGAffineTransform:transform] forKey:@"originalValue"];
+    }
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
@@ -166,52 +158,48 @@
 
 - (void)didTap:(UITapGestureRecognizer *)sender
 {
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
     CGPoint point = [sender locationInView:self];
+    
     UIView *view = [self hitTest:point withEvent:nil];
+    if ([view isEqual:self]) {
+        _selectedView = nil;
+        return;
+    }
+    
+    _selectedView = view;
     
     if ([_actors containsObject:view]) {
-        NSIndexSet *indexSet = [_motors indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            if ([[obj linkedView] isEqual:view]) {
-                return YES;
-            } else {
-                return NO;
-            }
+        NSIndexSet *indexSet = [_motors indexesOfObjectsPassingTest:^BOOL(PXHMotor *motor, NSUInteger idx, BOOL *stop) {
+            return [motor.linkedView isEqual:view];
         }];
         
         NSMutableArray *menuItems = [NSMutableArray new];
-        BOOL hasScale, hasRotate, hasTranslate = NO;
-        for (PXHMotor *motor in [_motors objectsAtIndexes:indexSet]) {
-            if (!hasScale && [motor isMemberOfClass:[PXHScaleMotor class]])
-                hasScale = YES;
-            if (!hasRotate && [motor isMemberOfClass:[PXHRotateMotor class]])
-                hasRotate = YES;
-            if (!hasTranslate && [motor isMemberOfClass:[PXHTranslateMotor class]])
-                hasTranslate = YES;
-        }
+        
+        BOOL hasMotor = indexSet.count > 0;
 
-        if (hasScale) {
-            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Scale" action:@selector(removeScaleMotor:)]];
-        } else {
+        if (hasMotor) {
+            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Motors" action:@selector(removeMotors:)]];
+        }
+        else {
             [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Scale" action:@selector(addScaleMotor:)]];
-        }
-
-        if (hasRotate) {
-            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Rotate" action:@selector(removeRotateMotor:)]];
-        } else {
             [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Rotate" action:@selector(addRotateMotor:)]];
-        }
-
-        if (hasTranslate) {
-            [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Remove Translate" action:@selector(removeTranslateMotor:)]];
-        } else {
             [menuItems addObject:[[UIMenuItem alloc] initWithTitle:@"Add Translate" action:@selector(addTranslateMotor:)]];
         }
 
         
-        [[UIMenuController sharedMenuController] setMenuItems:menuItems];
-
-        [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
+        [self becomeFirstResponder];
+        UIMenuController *controller = [UIMenuController sharedMenuController];
+        controller.menuItems = menuItems;
+        [controller setTargetRect:view.frame inView:self];
+        [controller update];
+        [controller setMenuVisible:YES animated:YES];
     }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -274,7 +262,7 @@
     
     if (self.window != nil) {
         _motors = [NSMutableArray new];
-        [self testMotors];
+//        [self testMotors];
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLink:)];
         [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     }
@@ -365,30 +353,72 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
     [_motors addObject:motor];
 }
 
-- (IBAction)addTranslate:(id)sender
+- (IBAction)addTranslateMotor:(id)sender
 {
-    
+    PXHTranslateMotor *motor = [[PXHTranslateMotor alloc] init];
+    CGFloat x = arc4random_uniform(100);
+    CGFloat y = arc4random_uniform(100);
+    motor.translation = CGPointMake(x, y);
+    motor.linkedView = _selectedView;
+    motor.amplitude = arc4random_uniform(40) / 10.0f - 2.0f;
+    [_motors addObject:motor];
 }
 
-- (IBAction)addRotation:(id)sender
+- (IBAction)addRotateMotor:(id)sender
 {
-    
+    PXHRotateMotor *motor = [[PXHRotateMotor alloc] init];
+    motor.linkedView = _selectedView;
+    motor.amplitude = arc4random_uniform(40) / 10.0f - 2.0f;
+    [_motors addObject:motor];
 }
 
-- (IBAction)addScale:(id)sender
+- (IBAction)addScaleMotor:(id)sender
 {
-    
+    PXHScaleMotor *motor = [[PXHScaleMotor alloc] init];
+    motor.linkedView = _selectedView;
+    motor.amplitude = arc4random_uniform(40) / 10.0f - 2.0f;
+    [_motors addObject:motor];
+}
+
+- (void)removeMotorsOfClass:(Class)motorClass linkedToView:(UIView *)linkedView
+{
+    for (PXHMotor *motor in [_motors copy]) {
+        if ([motor isMemberOfClass:motorClass] && [motor.linkedView isEqual:linkedView]) {
+            [motor.linkedView setValue:motor.originalValue forKey:motor.linkedValueKeyPath];
+            [_motors removeObject:motor];
+        }
+    }
 }
 
 - (IBAction)removeMotors:(id)sender
 {
-    
+    for (PXHMotor *motor in [_motors copy]) {
+        if ([motor.linkedView isEqual:_selectedView]) {
+            [motor.linkedView setValue:motor.originalValue forKey:motor.linkedValueKeyPath];
+            [_motors removeObject:motor];
+        }
+    }
+}
+
+- (IBAction)removeScaleMotor:(id)sender
+{
+    [self removeMotorsOfClass:[PXHScaleMotor class] linkedToView:_selectedView];
+}
+
+- (IBAction)removeTranslateMotor:(id)sender
+{
+    [self removeMotorsOfClass:[PXHTranslateMotor class] linkedToView:_selectedView];
+}
+
+- (IBAction)removeRotateMotor:(id)sender
+{
+    [self removeMotorsOfClass:[PXHRotateMotor class] linkedToView:_selectedView];
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     if (action == @selector(delete:)) {
-        return _trackingView != nil;
+        return _selectedView != nil;
     }
     else {
         return [super canPerformAction:action withSender:sender];
@@ -397,15 +427,11 @@ static inline CGPoint CGPointRandomInRect(CGRect rect) {
 
 - (IBAction)delete:(id)sender
 {
-    for (PXHMotor *motor in [_motors copy]) {
-        if ([motor.linkedView isEqual:_trackingView]) {
-            [_motors removeObject:motor];
-        }
-    }
+    [self removeMotors:sender];
     
-    [_actors removeObject:_trackingView];
-    [_trackingView removeFromSuperview];
-    _trackingView = nil;
+    [_actors removeObject:_selectedView];
+    [_selectedView removeFromSuperview];
+    _selectedView = nil;
 }
 
 @end
